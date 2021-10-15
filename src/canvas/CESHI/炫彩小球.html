@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="800" height="800"></canvas>
+    <script>
+        //- 得到画布
+        var canvas = document.getElementById("mycanvas");
+        //- 获取上下文
+        var ctx = canvas.getContext("2d");
+
+        //- 制作小球
+        function Ball(x, y, r) { //- 起坐标，始坐标，半径
+            this.x = x;
+            this.y = y;
+            this.r = r; //- 初始半径
+            this.color = getRandom(); //- 设置随机颜色
+            this.dx = parseInt(Math.random() * 10) - 5; //- 设置行进方向
+            this.dy = parseInt(Math.random() * 10) - 5;
+
+            //- 将小球维护到数组中
+            ballArr.push(this);
+        }
+
+        //- 渲染小球
+        Ball.prototype.render = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+
+        //- 让小球动起来
+        Ball.prototype.update = function () {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r -= 3;
+            if (this.r < 0) {
+                this.remove();
+            }
+        }
+        Ball.prototype.remove = function () {
+            for (var i = 0; i < ballArr.length; i++) {
+                ballArr.splice(i, 1)
+            }
+        }
+
+        //- canvas设置鼠标监听，鼠标移动的过程，创建小球
+        canvas.addEventListener("mousemove", function (event) {
+            new Ball(event.offsetX, event.offsetY, 20);
+        })
+
+        //- 维护小球的数组
+        var ballArr = [];
+
+        //- 用定时器进行动画渲染和更新
+        setInterval(function () {
+            //- 动画的逻辑：清屏-更新-渲染
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+            // console.log(ballArr);
+            for (var i = 0; i < ballArr.length; i++) {
+                console.log(ballArr);
+                ballArr[i].update();
+                ballArr[i].render();
+            }
+
+        }, 30)
+
+        //- 设置随机颜色
+        function getRandom() {
+            var allType = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+            var allTypeArr = allType.split(",");
+            console.log(allTypeArr);
+
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                var random = parseInt(Math.random() * allTypeArr.length)
+                console.log(random);
+
+                color += allTypeArr[random];
+                // console.log(color);
+
+            }
+            return color;
+        }
+        console.log(getRandom());
+    </script>
+</body>
+
+</html>

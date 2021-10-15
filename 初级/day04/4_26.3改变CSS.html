@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_26.3改变CSS样式</title>
+</head>
+
+<body onload="loadOn()">
+    <!-- 脚本改变CSS元素样式
+    <p id="p1">4月26日,星期一,阴雨天气</p>
+    <p id="p2">迄今为止,认识了很多人,懂得要真心对待每一个人。生活中每一分每一秒都要抓紧</p>
+    <script>
+        document.getElementById("p1").style.fontSize = "larger";
+        document.getElementById("p1").style.color = "red";
+        document.getElementById("p2").style.fontFamily = 'Arial';
+    </script> -->
+
+    <h3>隐藏/显示文本</h3>
+    <img id="image" src="../imgs/侄子.jpg" width="200px" height="200px">
+    <button onclick="document.getElementById('image').style.visibility='hidden'">隐藏图片</button>
+    <button onclick="document.getElementById('image').style.visibility='visible'">显示图片</button>
+
+
+    <!-- 点击替换文本 -->
+    <p onclick="this.innerHTML='change textarea'">你点不点我?!!</p>
+    <div style="width: 200px; height: 200px; background-color: chartreuse;" onmouseover="this.innerHTML='oh,yeah!'"
+        onmouseout="this.innerHTML='Mouse over this'"></div>
+
+
+    <!-- 灯泡亮与不亮 -->
+    <!-- <div id="light" style="background-color: crimson; width: 200px;height: 200px;"></div>
+    <script>
+        function lighton() {
+            document.getElementById("light").style.color = "yellow";
+        }
+        function lightoff() {
+            document.getElementById("light").style.color = "white";
+        }
+    </script> -->
+
+    <!-- 页面加载完成时,显示一个提示框 -->
+    <script>
+        function loadOn() {
+            alert("消息在 loadOn() 后出现!");
+        }
+    </script>
+
+    <!-- 当输入框获取焦点时,修改边框颜色 -->
+    <div>
+        用户名:<input type="text" onfocus="bgcChange(this)" onblur="bgcRecover(this)"
+            style="border-radius:25px;border-color: rgb(14, 120, 241); "><br>
+        密码:<input type="password" onfocus="bgcChange(this)" onblur="bgcRecover(this)"
+            style="border-radius:25px;border-color: rgb(14, 120, 241)"><br>
+    </div>
+    <script>
+        function bgcChange(x) {
+            x.style.background = "yellow"
+        }
+        function bgcRecover(x) {
+            x.style.background = "white";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 通过DOM操作HTML,根据id,class名找getElementById -->
+    <!-- <p id="pid">Hello </p>
+    <button onclick="domDemo01()">请点击</button>
+    <script>
+        function domDemo01() {
+            var nv = document.getElementById("pid");
+            nv.innerHTML = "World!";
+            // var nu = document.getElementById("pid").innerHTML = "WS";
+        }
+    </script> -->
+
+    <!-- <p id="pd" onclick="domDemo02()">yes</p>
+    <script>
+        function domDemo02() {
+            var n = document.getElementsByTagName("pd")
+            n.innerHTML = "HO";
+        }
+    </script> -->
+
+
+    <!-- <div id="ddiv" style="width: 100px; height: 100px; background-color:pink;">你好!</div>
+    <button onclick="cssDemo()">请点击</button>
+    <script>
+        //css的dom使用
+        function cssDemo() {
+            document.getElementById("ddiv").style.background = "red";
+        }
+    </script> -->
+
+
+    <button onclick="changeDemo()" id="btn">请点击...</button>
+    <script>
+        // DOM EventListener的解释,参数.addEventListener("click/close/upload",方法名);//事件句柄
+
+        // function changeDemo() {
+        //     alert("你好呀!");
+        // }
+        // document.getElementById("btn").addEventListener("click", changedemo());
+
+        //匿名函数
+        //document.getElementById("btn").addEventListener("click", function () { alert("是的,我很好!!") });
+
+        var x = document.getElementById("btn");
+
+        x.addEventListener("click", hello);
+        x.addEventListener("click", world);
+        // x.removeEventListener("click", hello);
+        function hello() {
+            alert("Hello");
+        }
+        function world() {
+            alert("World!")
+        }
+    </script>
+</body>
+
+</html>

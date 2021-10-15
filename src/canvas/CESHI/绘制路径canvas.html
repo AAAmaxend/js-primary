@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="1000" height="600">
+        123
+    </canvas>
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        //- 所有图形绘制都是通过ctx属性 方法制作的，和canvas已经没有关系了
+        var ctx = canvas.getContext("2d");
+
+        //- 创建一个路径
+        ctx.beginPath();
+        //- 移动绘制点
+        ctx.moveTo(100, 100);
+        //- 描述行进路径
+        ctx.lineTo(200, 200);
+        ctx.lineTo(300, 50);
+        //- 封闭这个路径
+        ctx.closePath();
+
+        //- 绘制这个不规则的图形
+        ctx.strokeStyle = "red"; //- 绘制
+        ctx.stroke();
+        ctx.fillStyle = "green"; //- 填充  fill不用ctx.closePath()封闭图形也有效
+        ctx.fill();
+    </script>
+</body>
+
+</html>

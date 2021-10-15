@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="1000" height="600"></canvas>
+    <script>
+        //- 得到画布
+        var canvas = document.getElementById("mycanvas");
+        //- 获取上下文
+        var ctx = canvas.getContext("2d");
+
+        //- 维护状态
+        function Rect(x, y, w, h, color) {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+            this.color = color;
+        }
+
+        //- 更新和渲染的方法
+        Rect.prototype.update = function () {
+            this.x++;
+        }
+        Rect.prototype.render = function () {
+            //- 设置颜色
+            ctx.fillStyle = this.color;
+            //- 设置颜色
+            ctx.fillRect(this.x, this.y, this.w, this.h);
+        }
+
+        //- 实例化
+        var r1 = new Rect(100, 100, 50, 50, "purple");
+        var r2 = new Rect(50, 200, 80, 80, "red");
+
+        //- 定时器中设置动画过程。清除-更新-渲染
+        setInterval(function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            r1.update(); //- 引用更新方法
+            r1.render(); //- 引用渲染方法
+
+            r2.update(); //- 引用更新方法
+            r2.render(); //- 引用渲染方法
+        }, 10)
+    </script>
+</body>
+
+</html>

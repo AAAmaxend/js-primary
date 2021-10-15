@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript对象</title>
+</head>
+
+<body>
+    <h4>在 JavaScript 中，对象是一组无序的相关属性和方法的集合，所有的事物都是对象，例如字符串、数值、数组、函数等。
+    </h4>
+    <h5>对象是由属性和方法组成的。<br>
+        属性：事物的特征，在对象中用属性来表示（常用名词）<br>
+        方法：事物的行为，在对象中用方法来表示（常用动词）
+    </h5>
+    <h4>在 JavaScript 中，现阶段我们可以采用三种方式创建对象（object）
+    </h4>
+    <h5>
+        利用字面量创建对象 <br>
+        利用 new Object 创建对象 <br>
+        利用构造函数创建对象
+    </h5>
+    <h4>请用对象字面量的形式创建一个名字为可可的狗对象</h4>
+    <h5>
+        具体信息如下：<br>
+        姓名：可可 <br>
+        类型(type)：阿拉斯加犬<br>
+        年龄：5岁，<br>
+        颜色：棕红色。<br>
+        技能：汪汪汪(bark) ，演电影 (showFilm)
+    </h5>
+    <script type="text/javascript">
+        //案例:狗狗
+        var dog = {
+            name: "keke",
+            type: "阿拉斯加犬",
+            age: 5,
+            color: "red",
+            enable: function () {
+                console.log("bark~~~");
+                console.log("showFilm");
+            }
+        }
+        for (k in dog) {
+            console.log(k);
+            console.log(dog[k]);
+        }
+        dog.enable();
+
+        //案例:鸣人
+        var person = new Object();
+        person.name = "鸣人";
+        person.sex = "男";
+        person.age = 19;
+        person.skill = function () {
+            console.log("影分身术");
+        };
+        person.skill();
+
+    </script>
+
+</body>
+
+</html>

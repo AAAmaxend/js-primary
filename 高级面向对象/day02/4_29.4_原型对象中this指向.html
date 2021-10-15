@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型对象中this指向</title>
+</head>
+
+<body>
+    <script>
+
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+        }
+        var that;
+        Star.prototype.sing = function () {
+            console.log('I can sing~');
+            that = this;
+        }
+
+        //原型对象this指向 指的是这个方法的调用者，也就是这个实例对象
+        var ldh = new Star('刘德华', 18);
+        console.log(that === ldh);
+        ldh.sing()
+
+
+
+    </script>
+</body>
+
+</html>

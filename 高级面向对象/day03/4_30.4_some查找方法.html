@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>some查找方法</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 4];
+        var flag1 = arr1.some(function (value, index, array) {
+            return value > 10;
+        })
+        console.log(flag1);
+
+        //some()方法用于检测数组中的元素是否满足指定条件。如果有返回true，没有返回false
+
+        var arr2 = ['pink', 'red', 'yellow'];
+        var flag2 = arr2.some(function (value, index, array) {
+            return 'red';
+        })
+        console.log(flag2);
+
+
+    </script>
+</body>
+
+</html>

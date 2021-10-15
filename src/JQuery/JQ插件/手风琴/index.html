@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js和CSS3漂亮的手风琴菜单特效|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css"><!--演示页面样式，使用时可以不引用-->
+	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>js和CSS3漂亮的手风琴菜单特效 <span>Smooth Vertical Accordion Menu With JavaScript And CSS3</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/jQuery/Accordion/201809045312.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<h1>Accordion Menu</h1>
+		<ul class="menu">
+		   <li class="list"><a href="#">List 1 </a> 
+		      <ul class="items">
+		         <li><a href="#"> Item 1-1</a></li>
+		         <li><a href="#"> Item 1-2</a></li>
+		         <li><a href="#"> Item 1-3</a></li>
+		      </ul>
+		   </li>
+		   <li class="list"><a href="#">List 2</a> 
+		      <ul class="items">
+		         <li> <a href="#" > Item 2-1 </a></li>
+		         <li> <a href="#" > Item 2-2 </a></li>
+		         <li> <a href="#" > Item 2-3 </a></li>
+		      </ul>
+		   </li>
+		   <li class="list"><a href="#">List 3</a> 
+		      <ul class="items">
+		         <li> <a href="#" > Item 3-1 </a></li>
+		         <li> <a href="#" > Item 3-2 </a></li>
+		         <li> <a href="#" > Item 3-2 </a></li>
+		      </ul>
+		   </li>
+		   <li class="list"><a href="#">List 4</a> 
+		      <ul class="items">
+		         <li> <a href="#" > Item 4-1 </a></li>
+		         <li> <a href="#" > Item 4-2 </a></li>
+		         <li class="list"><a href="#">List 4-1</a> 
+		            <ul  class="items">
+		               <li> <a href="#" > Item 4-1-1</a></li>
+		               <li> <a href="#" > Item 4-1-2</a></li>
+		               <li class="list"><a href="#">List 4-2</a> 
+		                  <ul  class="items">
+		                     <li> <a href="#" > Item 4-2-1</a></li>
+		                     <li> <a href="#" > Item 4-2-2</a></li>
+		                  </ul>
+		               </li>
+		            </ul>
+		         </li>
+		      </ul>
+		   </li>
+		</ul>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Accordion/201802244989.html">
+			  <img src="related/1.jpg" width="300" alt="bootstrap垂直手风琴菜单效果"/>
+			  <h3>bootstrap垂直手风琴菜单效果</h3>
+			</a>
+			<a href="http://www.htmleaf.com/css3/ui-design/201711234843.html">
+			  <img src="related/2.jpg" width="300" alt="CSS3垂直手风琴Accordion特效"/>
+			  <h3>CSS3垂直手风琴Accordion特效</h3>
+			</a>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var list = document.querySelectorAll('.list');
+
+		function accordion(e) {
+		    e.stopPropagation();
+		    if (this.classList.contains('active')) {
+		        this.classList.remove('active');
+		    } else
+		    if (this.parentElement.parentElement.classList.contains('active')) {
+		        this.classList.add('active');
+		    } else
+		    {
+		        for (i = 0; i < list.length; i++) {
+		            list[i].classList.remove('active');
+		        }
+		        this.classList.add('active');
+		    }
+		}
+		for (i = 0; i < list.length; i++) {
+		    list[i].addEventListener('click', accordion);
+		}
+	</script>
+</body>
+</html>

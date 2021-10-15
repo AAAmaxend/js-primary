@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借用原型对象继承方法</title>
+</head>
+
+<body>
+    <script>
+        function Father(fname, fage) {
+            this.fname = fname;     //this指向父构造函数的实例对象
+            this.fage = fage;
+        }
+        function Son(sname, sage, score) {
+            Father.call(this, sname, sage);     //通过call()方法调回子构造函数的对象实例
+            this.score = score;
+        }
+        Father.prototype.money = function () {
+            console.log(10000);
+
+        }
+
+        //
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;   //【*****】constructor指回原来的子构造函数
+
+        Son.prototype.exam = function () {
+            console.log('孩子要考试=_=');
+
+        }
+        var ldh = new Son('刘德华', 18, 60);
+        console.log(ldh);   //Son【ldh的信息】
+        console.log(Father.prototype);  //Object
+        console.log(Father.prototype.constructor);  //Father的方法
+
+        console.log(Son.prototype);     //Father
+        console.log(Son.prototype.constructor);     //Window
+
+    </script>
+</body>
+
+</html>

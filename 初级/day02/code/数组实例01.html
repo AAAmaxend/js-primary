@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组实例01</title>
+    <script type="text/javascript">
+        // 数组分割字符串
+        var array = ['red', 'yellow', 'blue', 'pink'];
+        var str = '';
+        var sepa = '|';
+        for (var i = 0; i < array.length; i++) {
+            str += array[i] + sepa;
+        }
+        console.log(str);
+
+        // 数组去重
+        var array = [2, 0, 35, 0, 45, 78, 61, 0, 4];
+        var newArray = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                newArray[newArray.length] = array[i];
+            }
+        }
+        console.log(newArray);
+
+        //数组翻转
+        var array = ['red', 'yellow', 'blue', 'pink'];
+        var newArr = [];
+        for (var i = 0; i < array.length; i++) {
+            newArray[i] = array[array.length - i - 1];
+        }
+        console.log(newArray);
+
+        //数组冒泡排序:从小到大排序
+        var arr = [1, 6, 0, 56, 12, 54];
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

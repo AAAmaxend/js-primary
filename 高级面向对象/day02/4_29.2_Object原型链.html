@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object原型链</title>
+</head>
+
+<body>
+    <script>
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+        }
+        Star.prototype.sing = function () {
+            console.log('I can sing~');
+        }
+        var ldh = new Star('刘德华', 18);
+        console.log(Star.prototype.__proto__ === Object.prototype); //true。说明Star原型对象 里面的__proto__原型指向的是 Object.prototype
+
+        console.log(Star.prototype.constructor);    //Object
+
+        console.log(Object.prototype.__proto__);    //null。说明Object的原型对象【prototype】里面的__proto__对象原型 指向的是null
+
+
+
+    </script>
+</body>
+
+</html>

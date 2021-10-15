@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .current {
+            background-color: rgb(248, 13, 189);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li><a href="#">123</a></li>
+        <li><a href="#">456</a></li>
+        <li><a href="#">789</a></li>
+        <li>741</li>
+        <li>147</li>
+    </ul>
+    <script>
+        //1、单个事件注册 麻烦
+        // $("div").click(function () {
+        //     $(this).css("background", "blue")
+        // })
+        // $("div").mouseenter(function () {
+        //     $(this).css("background", "yellowgreen")
+        // })
+        // 2、事件处理on {}里面装对象 
+        //(1)绑定一个或者多个事件处理程序
+        // $("div").on({
+        //     mouseenter: function () {
+        //         $(this).css("background", "yellowgreen")
+        //     },
+        //     click: function () {
+        //         $(this).css("background", "blue")
+        //     },
+        //     mouseleave: function () {
+        //         $(this).css("background", "red")
+        //     }
+        // })
+
+        $("div").on("mouseenter mouseleave", function () {
+            $(this).toggleClass("current")
+        })
+
+
+
+
+        // (2) on实现事件委托
+        // $("ul li a").click();
+        $("ul").on("click", "a", function () {  //click是绑定在ul身上的，但是触发的对象是ul 里面的a
+            $(this).css("color", "red")
+        })
+
+
+
+
+        // (3) 给动态创建的元素绑定事件
+        // $("ul li").click(function () {
+        //     alert(11);
+        // })//先前的可以有效果
+
+        $("ul").on("click", "li", function () {
+            alert(11);
+        })
+
+        // 动态创建 后面创建
+        var li = $("<li>动态创建</li>")
+        $("ul").append(li)
+
+    </script>
+</body>
+
+</html>

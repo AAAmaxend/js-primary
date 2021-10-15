@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式在js上的使用</title>
+</head>
+
+<body>
+    <div>
+        <h2>正则表达式概述 </h2>
+        <p>
+            正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在 JavaScript中，正则表达式也 是对象。
+        </p>
+        <p>
+            正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字 母、数字或者下划线， 昵称输入框中可以输入中文(匹配)
+        </p>
+        <p>
+            正则表达式还常用于过滤掉页面内容中的一 些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等
+        </p>
+        <p>
+            其他语言也会使用正则表达式，本阶段我们主要是利用 JavaScript 正则表达式完成表单验证。
+
+        </p>
+    </div>
+    <div>
+        <h2>正则表达式特点</h2>
+        <ul>
+            <li>1. 灵活性、逻辑性和功能性非常的强。 </li>
+            <li>2. 可以迅速地用极简单的方式达到字符串的复杂控制</li>
+            <li>3. 对于刚接触的人来说，比较晦涩难懂。比如： ^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$ </li>
+            <li>4. 实际开发,一般都是直接复制写好的正则表达式. 但是要求会使用正则表达式并且根据实际情况修改正则表达 式. 比如用户名: /^[a-z0-9_-]{3,16}$/ </li>
+        </ul>
+    </div>
+    <script>
+        // 1. 利用RegExp 对象来创建 正则表达式
+        var regexp = new RegExp(/123/);
+        console.log(regexp);    // /123/
+
+        // 2. 利用字面量创建 正则表达式
+        var rg = /123/;
+
+        // 3. test()方法用来检测字符串是否[true or false]符合正则表达式要求的规范
+        console.log(rg.test(123));  // true
+        console.log(rg.test('abc')); // false
+
+    </script>
+</body>
+
+</html>

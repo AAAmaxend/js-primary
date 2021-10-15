@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+</head>
+
+<body>
+    <!-- JavaScript 除了提供正常模式外，还提供了严格模式（strict mode）。
+     ES5 的严格模式是采用具有限制性 JavaScript 变体的一种方式，即在严格的条件下运行 JS 代码。 -->
+
+    <script>
+        'use strict';
+        // 下面的js代码就会按照严格模式执行代码
+    </script>
+
+    <script>
+        (function () {
+            'user strict';
+            // 为某个函数开启严格模式
+        })();
+    </script>
+
+    <script>
+        function fn() {
+            'use strict';
+            // 下面的代码按照你严格模式执行
+        }
+        function fun() {
+            //里面的还是按照普通模式执行
+        }
+    </script>
+</body>
+
+</html>

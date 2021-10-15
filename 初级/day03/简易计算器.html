@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var show = prompt("欢迎使用简易计算器:" + "\n" + 1 + ".加法运算:" + "\n" + 2 + ".减法运算:" + "\n" + 3 + ".乘法运算:" + "\n" + 4 + ".除法运算:" + "\n" + 5 + ".退出:" + "\n" + "请输入您的选项:");
+        function calculate(s) {
+            var num1 = prompt("请输入第一个数:");
+            var num2 = prompt("请输入第二个数:");
+            switch (s) {
+
+                //字符串1
+                case '1':
+                    alert(parseInt(num1) + parseInt(num2));
+                    break;
+                case '2':
+                    alert(num1 - num2);
+                    break;
+                case '3':
+                    alert(num1 * num2);
+                    break;
+                case '4':
+                    alert(num1 / num2);
+                    break;
+                case '5':
+                    alert("您已退出");
+                    break;
+                default:
+                    alert("操作无效");
+                    break;
+            }
+        }
+        var jieguo = calculate(show);
+
+    </script>
+
+</body>
+
+</html>

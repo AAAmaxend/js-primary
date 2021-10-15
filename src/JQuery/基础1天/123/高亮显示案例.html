@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="#"><img src="images/01.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/02.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/03.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/04.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/05.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/06.jpg" alt="" /></a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 当鼠标进入的时候，其他li标签透明度改成0.5。
+        // 当鼠标离开，其他li透明度改成1
+        $(function () {
+            $(".wrap li").hover(function () {
+                // 解决动画排队的问题 stop()
+                $(this).siblings().stop().fadeTo(400, 0.5)
+            }, function () {
+                $(this).siblings().stop().fadeTo(400, 1)
+            })
+        })
+    </script>
+</body>
+
+</html>

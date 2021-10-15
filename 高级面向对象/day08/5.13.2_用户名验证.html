@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户名验证</title>
+    <style>
+        span {
+            color: #aaa;
+        }
+
+        .right {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>请输入用户名</span>
+        <input type="text" class="uname">
+    </div>
+    <script>
+        var reg = /^[a-zA-Z0-9_-]{6,16}$/;
+        var uname = document.querySelector('.uname');
+        var span = document.querySelector('span');
+        uname.onblur = function () {
+            if (reg.test(this.value)) {
+                console.log('right');
+                span.className = 'right';
+                span.innerHTML = 'input is right.'
+            } else {
+                console.log('wrong');
+                span.className = 'wrong';
+                span.innerHTML = 'input is wrong.'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

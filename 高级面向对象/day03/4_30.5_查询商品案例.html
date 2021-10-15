@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询商品案例</title>
+    <style>
+        .search {
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        table {
+            width: 400px;
+            border: 1px solid #666;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #666;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照价格查询：
+        <input type="text" class="start">~
+        <input type="text" class="end">
+        <button class="search_price">搜索</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        按照商品名称查询：
+        <input type="text" class="product">
+        <button class="search_pro">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>小米</td>
+                <td>3999</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>oppo</td>
+                <td>999</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>荣耀</td>
+                <td>1299</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>华为</td>
+                <td>1999</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>vivo</td>
+                <td>1099</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>苹果</td>
+                <td>5999</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script>
+        //利用新增数组方法操作数据
+        var data = [{
+            id: 1,
+            name: '小米',
+            price: 3999
+        }, {
+            id: 2,
+            name: 'oppo',
+            price: 999
+        }, {
+            id: 3,
+            name: '荣耀',
+            price: 1299
+        }, {
+            id: 4,
+            name: '华为',
+            price: 1999
+        }, {
+            id: 5,
+            name: 'vivo',
+            price: 1099
+        }, {
+            id: 6,
+            name: '苹果',
+            price: 5999
+        }]
+        //1.获取相应元素
+        var tbody = document.querySelector('tbody');
+        var start = document.querySelector('.start');
+        var end = document.querySelector('.end');
+        var product = document.querySelector('.product');
+        var search_price = document.querySelector('.search_price');
+        var search_pro = document.querySelector('.search_pro');
+
+        setDate(data);
+
+        //2.把数据渲染到页面中
+        //forEach
+        function setDate(myData) {
+            //使用前先清空原来tbody里面的数据
+            tbody.innerHTML = '';
+            myData.forEach(function (value) {
+                var tr = document.createElement('tr');  //追加的节点
+                tr.innerHTML = '<td>' + value.id + "</td><td>" + value.name + "</td><td>" + value.price + "</td>";  //追加的文本
+
+                tbody.appendChild(tr);//执行追加操作
+            })
+        }
+
+        //目标1：根据价格显示数据--->筛选filter
+        search_price.addEventListener('click', function () {
+            var newDate = data.filter(function (value) {
+                return value.price > start.value && value.price < end.value;
+            })
+            console.log(newDate);
+            setDate(newDate);   //把筛选完之后的对象渲染到页面中
+
+        })
+
+        //目标2：根据商品名称显示数据--->查找some
+        search_pro.addEventListener('click', function (value) {
+            var arr = [];
+            data.some(function (value) {
+                if (value.name === product.value) {
+                    arr.push(value);
+                    return true;
+                }
+            })
+            setDate(arr);   //把拿到的数据渲染到页面中
+        })
+    </script>
+</body>
+
+</html>

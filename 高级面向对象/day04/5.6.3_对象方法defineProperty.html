@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法Object.defineProperty</title>
+</head>
+
+<body>
+    <script>
+
+        // Object.defineProperty(obj, prop, descriptor)  定义新属性或修改原有的属性。
+        var obj = {
+            id: 1,
+            pname: '小米',
+            price: 1999
+        }
+        //1.以前给对象增加属性、修改属性
+        // obj.num = 1000;
+        // obj.price = 999;
+        // console.log(obj);
+
+        //2.现在给对象新增属性、修改属性
+        Object.defineProperty(obj, 'num', {     //新增属性
+            value: 1000     //value设置属性的值
+        });
+        console.log(obj);
+        Object.defineProperty(obj, 'price', {   //修改属性
+            value: 9.9
+        })
+        console.log(obj);
+        Object.defineProperty(obj, 'id', {
+            writable: false  //writable布尔值为false，不允许修改这个属性值。默认对象的属性也是不允许重写的
+        })
+
+
+        Object.defineProperty(obj, 'address', {
+            value: '江西软件职业技术大学',
+            writabe: false,
+            enumerable: false    //enumerable判断是否遍历枚举。默认值是不允许枚举的
+        })
+        console.log(Object.keys(obj));
+
+        Object.defineProperty(obj, 'tel', {
+            value: '0171599595',
+            writable: false,
+            enumerable: true,
+            configurable: true   //configurable属性是否可以被删除或者可以被修改。默认值是不允许的
+        })
+        delete obj.tel;
+        console.log(obj);
+
+
+
+
+    </script>
+</body>
+
+</html>

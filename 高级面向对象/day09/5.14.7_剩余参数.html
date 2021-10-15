@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+</head>
+
+<body>
+    <script>
+        // 剩余参数语法允许我们将一个不定数量的参数表示为一个数组
+        function sum(first, ...args) {
+            console.log(first); //10
+            console.log(args); //[20,30]
+
+            let total = 0;
+            args.forEach(item => total += item);
+            return total;
+        }
+        console.log(sum(10, 20, 30));   //50
+
+    </script>
+</body>
+
+</html>

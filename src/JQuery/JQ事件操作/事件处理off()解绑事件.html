@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <p>我是p</p>
+    <!-- //只触发一次事件 -->
+    <script>
+        $(function () {
+            $("div").on({
+                click: function () {
+                    console.log("click");
+
+                },
+                mouseover: function () {
+                    console.log("over");
+
+                }
+            });
+            $("ul").on("click", "li", function () {
+                console.log("li的click");
+
+            })
+
+            //1、事件解绑 off
+            // $("div").off(); //解除div身上的所有事件
+            $("div").off("click");
+            $("ul").off("click", "li"); //解绑事件委托
+
+
+            //2、one()只能触发一次事件
+            $("p").one("click", function () {
+                console.log("p被点击了");
+
+            })
+        })
+    </script>
+</body>
+
+</html>

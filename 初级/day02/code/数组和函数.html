@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数组和函数</title>
+    <script type="text/javascript">
+        //2021/3/22 下午18:41
+        //javascript数组 定义
+        var arr = [];
+        // alert(arr.length);//0
+
+        arr[0] = 6;
+        arr[2] = "abd";
+        alert(arr.length);//3,javascript的数组长度可自动扩容,只要通过下标赋值
+
+        for (var i = 0; i < arr.length; i++) {
+            alert(arr[i]);
+        }
+
+        //javascript的函数定义function关键词:
+        // 两种定义方法:定义有参和无参,带有返回值return
+        function sum01() {
+            alert("sum01方法被调用了~~~");
+        }
+        sum01();
+
+        function sum02(a, b) {
+            alert("sum02方法被调用了~~~,a:" + a + ",b:" + b);
+        }
+        sum02(12, false);
+
+        function sum03(a, b) {
+            var res = a + b;
+            return res;
+        }
+        alert(sum03(12, 20));
+
+        //2021/3/22 19:20
+        //javascript函数定义的第二种方法,var 变量名 = function(){  },相当于把方法名写到前面去了
+        //也分有参无参,加return
+        var fun = function () {
+            alert("javascript第二种定义函数的方式被调用了");
+        }
+        fun();
+        var fun02 = function (a, b) {
+            return "javascript第二种定义有参函数方式." + (a + b);
+        }
+        alert(fun02(10, 10))
+
+
+        //2021/3/22 19:26
+        //javascript的方法不允许重载,后面的重名方法会覆盖其上一个方法
+        //不像java的重载方法
+        function sell(a, b) {
+            alert("卖汤圆,卖汤圆~~~,小孩子的汤圆是圆又圆." + (a + b));
+        }
+        function sell() {
+            alert("这里有个汤圆~~~");
+        }
+        sell(1, 3); //得到===>这里有个汤圆~~~
+
+        //为什么会这样???后面方法没有参数却还可以传入参数?
+        // 因为javascript提供了隐形参数arguments
+        function invisible() {
+            // alert(arguments);//[object Arguments]
+
+            //2021/3/22 19:38
+            //没有参数却还能传递参数,原因是隐形参数arguments的存在
+            for (var i = 0; i < arguments.length; i++) {
+                alert(arguments[i]);//12 abs null
+            }
+        }
+        invisible();
+        invisible(12, "abs", null);
+        //隐形参数是什么?就是javascript中不需要定义,就可以直接用来获取的所有参数的变量，所以我们叫他隐形参数
+        // 。隐形参数是一个变量
+
+
+        // 做个小方法:编写一个函数,用于计算所有参数相加的和并返回
+        // 注意排除非数值类型的值
+        function add() {
+            alert(arguments.length);//7
+            var res = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                if (typeof (arguments[i] == "number")) {
+                    res += arguments[i];
+                }
+            }
+            return res;
+        }
+        alert(add(1, 2, 3, "abd", 4, 5, 6));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

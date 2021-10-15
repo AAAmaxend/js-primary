@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替换replace方法</title>
+</head>
+
+<body>
+    <!-- replace 替换
+    stringObject.replace(regexp/substr,replacement)
+    1. 第一个参数: 被替换的字符串 或者 正则表达式
+    2. 第二个参数: 替换为的字符串
+    3. 返回值是一个替换完毕的新字符串 -->
+    <textarea id="message" cols="30" rows="10"></textarea>
+    <button>提交</button>
+    <div></div>
+    <script>
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function () {
+            div.innerHTML = text.value.replace('**');
+        }
+    </script>
+</body>
+
+</html>

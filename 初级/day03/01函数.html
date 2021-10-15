@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //函数如果有返回值,最后返回的是return后面的值;没有返回值,返回的是undefined
+
+        //利用函数求任意两个数的最大值
+        function getMax(a, b) {
+            return a > b ? a : b;
+        }
+        console.log(getMax(10, 20));
+
+        //利用函数求数组中的最大值
+        function getArrMax(arr) {
+            var max = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        console.log(getArrMax([10, 2, 4, 65, 10])); 
+    </script>
+
+</body>
+
+</html>

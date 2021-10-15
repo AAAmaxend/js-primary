@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        .aDiv,
+        .bDvi {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+            float: left;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 400px;
+            background-color: pink;
+            display: none;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aDiv">
+        <button class="btn1">显示</button>
+        <button class="btn1">隐藏</button>
+        <button class="btn1">切换</button>
+        <div class="div1"></div>
+    </div>
+    <div class="bDiv">
+        <button class="btn2">下拉滑动</button>
+        <button class="btn2">上拉滑动</button>
+        <button class="btn2">切换滑动</button>
+        <div class="div2"></div>
+    </div>
+    <script>
+        $(function () {
+            $('.btn1').eq(0).click(function () {
+                $('.div1').show(1000)
+            })
+            //一般情况我们都不加参数直接显示隐藏
+            $('.btn1').eq(1).click(function () {
+                $('.div1').hide(1000)
+            })
+            $('.btn1').eq(2).click(function () {
+                $('.div1').toggle(1000)
+            })
+        })
+
+
+        $(function () {
+            $('.btn2').eq(0).click(function () {
+                //下拉滑动 slideDown()
+                $('.div2').slideDown(1000)
+            })
+            $('.btn2').eq(1).click(function () {
+                //上拉滑动 slideUp()
+                $('.div2').slideUp(1000)
+            })
+            $('.btn2').eq(2).click(function () {
+                //切换滑动 slideToggle()
+                $('.div2').slideToggle(1000)
+            })
+        })
+    </script>
+</body>
+
+</html>

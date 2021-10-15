@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例2：循环中的setTimeout</title>
+</head>
+
+<body>
+    <div>
+        <ul class="nav">
+            <li>梅菜扣肉</li>
+            <li>宫保鸡丁</li>
+            <li>鱼香肉丝</li>
+            <li>糖醋排骨</li>
+        </ul>
+    </div>
+
+    <script>
+        // 闭包应用 -3秒钟之后，打印所有li元素的内容
+        // 1.获取元素
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+
+        // 2.循环绑定事件
+        for (var i = 0; i < lis.length; i++) {
+
+            // 立即执行函数，作用域i的使用
+            (function (i) {
+                setTimeout(function () {
+                    console.log(i);
+                    console.log(lis[i].innerHTML);
+
+                }, 3000);
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

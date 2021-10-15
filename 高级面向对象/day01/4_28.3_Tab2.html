@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab_2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        main {
+            width: 500px;
+            height: 500px;
+        }
+
+        .firstnav {
+            width: 500px;
+            height: 100px;
+            border: 1px solid rgb(245, 101, 17);
+            border-bottom: none;
+
+            /* 相对定位 */
+            position: relative;
+        }
+
+        .firstnav ul li {
+            float: left;
+            height: 100px;
+            border: 1px solid rgb(245, 101, 17);
+        }
+
+        .tabadd span {
+            border: 1px solid rgb(245, 101, 17);
+            width: 20px;
+            height: 10px;
+            line-height: 10px;
+            text-align: center;
+
+            /* 绝对定位 */
+            position: absolute;
+            right: -1px;
+            font-size: large;
+        }
+
+        .tabscon {
+            width: 500px;
+            height: 350px;
+            border: 1px solid rgb(245, 101, 17);
+            border-top: none;
+        }
+
+        .tabscon section {
+            display: none;
+        }
+
+        .conactive {
+            display: block !important;
+        }
+
+        .liactive {
+            border-bottom: none !important;
+        }
+
+        .firstnav ul li p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h4>JS 面向对象 动态添加标签页</h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab标签 -->
+            <nav class="firstnav">
+                <ul>
+                    <li class="liactive">
+                        <span>测试1</span>
+                        <p class="iconfont">&#xe60d;</p>
+                    </li>
+                    <li>
+                        <span>测试2</span>
+                        <p class="iconfont">&#xe60d;</p>
+                    </li>
+                    <li>
+                        <span>测试3</span>
+                        <p class="iconfont">&#xe60d;</p>
+                    </li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+        </div>
+
+        <!-- tab内容 -->
+        <div class="tabscon">
+            <section class="conactive">测试1</section>
+            <section>测试2</section>
+            <section>测试3</section>
+        </div>
+    </main>
+    <script src="tab2.js"></script>
+</body>
+
+</html>

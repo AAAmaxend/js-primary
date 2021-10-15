@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边界符</title>
+</head>
+
+<body>
+    <div>
+        <h2>
+            正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符^ $。 如果 ^ 和 $ 在一起，表示必须是精确匹配。
+        </h2>
+    </div>
+    <div>
+        <ul>
+            <li>^:表示匹配行首的文本【以谁开始】</li>
+            <li>$:表示匹配行尾的文本【以谁结束】</li>
+        </ul>
+    </div>
+    <div>
+        <p>如果 ^ 和 $ 在一起，表示必须是精确匹配。 </p>
+    </div>
+    <script>
+        var rg = /abc/;  // 没有中括号。只要包含abc这样连续的字符就可以。
+        console.log(rg.test('abc'));    // true
+        console.log(rg.test('abcd'));   // true
+        console.log(rg.test('aabbcc')); // false
+        console.log("==========================");
+
+        // ^
+        var rg2 = /^abc/;   //没有中括号。^字符串 意思为该串字符串以谁开始
+        console.log(rg2.test('abc'));                   // true
+        console.log(rg2.test('abcd'));                  // true
+        console.log(rg2.test('abbcc abcdabcdabc'));    // false
+        console.log(rg2.test('dcba'));                  // false
+
+        console.log("==========================");
+
+        // $
+        var rg3 = /abc$/;   //没有中括号。字符串$ 意思为该串字符串以谁结束
+        console.log(rg3.test('abc'));                   // true
+        console.log(rg3.test('abcd'));                  // true × ----> false
+        console.log(rg3.test('aabbcc abcdabcdabc'));    // false × ----> true
+        console.log(rg3.test('dcba abc'));              // true
+
+        console.log("==========================");
+
+        // ^ and $
+        var rg4 = /^abc$/;  //没有中括号。^字符串$ 意思为精确匹配，要求必须是abc固定字符串才返回true
+        console.log(rg4.test('abc'));   //true
+        console.log(rg4.test('aabc'));  //false
+        console.log(rg4.test('abcd'));  //false
+        console.log(rg4.test('abcabc'));   //false
+
+
+
+
+
+    </script>
+</body>
+
+</html>

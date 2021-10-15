@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链成员的查找规则</title>
+</head>
+
+<body>
+    <script>
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+        }
+        Star.prototype.sing = function () {
+            console.log('I can sing~');
+        }
+
+        //静态成员
+        Star.prototype.sex = '女';
+        var ldh = new Star('刘德华', 18);
+        ldh.sex = '男';
+
+        console.log(ldh.age);  //18
+        console.log(ldh.sex);   //男
+
+        console.log(Star.prototype.__proto__);  //
+        console.log(ldh.prototype); //undefined
+
+        console.log(Star.prototype);    //sex，sing，constructor
+        console.log(Object.prototype === Star.prototype.__proto__);  //true
+
+        console.log(ldh.toString);  //native code
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

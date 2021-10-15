@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+</head>
+
+<body>
+    <script type="text/javascript" src="../day01/基础.html"></script>
+
+    <script>
+        //对象定义方式:1 2 3
+        //方式1,类.属性 = "值";
+        // people = new Object();
+        // people.name = "iwen";   //设置属性
+        // people.age = "30";
+        // document.write("name:" + people.name + ",age:" + people.age);
+
+        //方式2,类 = {属性:"值",属性:"值"};
+        //     people = { name: "iwen", age: "30" };
+        //     document.write("name-" + people.name + ",age-" + people.age);
+
+
+        //方式3,利用方法
+        // function people(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // son = new people("iwen", "20");
+        // document.write("name:" + son.name + ",age:" + son.age);
+
+        //字符串对象
+        var str = "Hello World!";
+        // document.write(str.length);
+        // document.write(str.indexOf("lll"));     //查询字符串是否存在,从哪一个字符下标开始
+        // document.write(str.match("world"));     //匹配括号中的字符是否存在
+        // document.write(str.replace(" ", "baidu"));       //将" "字符转换为baidu
+        // document.write(str.toUpperCase());      //将小写字符转换为大写,原本是大写就不换
+        // document.write(str.split(" "));
+
+
+
+        //Date日期对象
+        //        var d = new Date();
+        // document.write(d);      //获取当前年份、日期、时间。Fri Dec 18 2020 15:13:18 GMT+0800 (中国标准时间)
+        // document.write(d.getFullYear);      //function getFullYear() { [native code] }
+        // document.write(d.getHours);     //获取1970年到现在的毫秒数
+
+        // d.setFullYear(2017, 1, 1);      //设置时间
+        // document.write(d);
+        // function startTime() {
+        //     var today = new Date();
+        //     var h = today.getHours();
+        //     var m = today.getMinutes();
+        //     var s = today.getSeconds();
+        //     m = checkTime(m);
+        //     s = checkTime(s);
+        //     document.getElementById("timeNext").innerHTML(h + ":" + m + ":" + s);
+        //     t = setTimeout(function () {
+        //         startTime();
+        //     }, 1000);
+
+        // }
+        // function checkTime(i) {
+        //     if (i < 10) {
+        //         i = "0" + i;
+        //     }
+        //     return i;
+        // }
+
+    </script>
+    <div id="timeNext"></div>
+    <a href="javascript:alert('Hello World!');">你点一下</a>
+    <button onclick="alert('Hello')">不,是点这里</button>
+
+
+</body>
+
+</html>

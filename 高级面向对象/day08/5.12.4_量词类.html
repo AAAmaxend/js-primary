@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量词类</title>
+</head>
+
+<body>
+    <script>
+        // 量词符用来设定某个模式出现的次数。 
+        // * 重复0次或者多次
+        // + 重复1次或多次
+        // ? 重复0次或1次
+        // {n} 重复n次
+        // {n,} 重复n次或多次
+        // {n,m} 重复n到m次
+
+        //边界符 ^ $
+        var reg = /^a$/;    //没有中括号。精确匹配
+        console.log(reg.test('a'));     //true
+        console.log(reg.test('aaa'));   //false
+        console.log("==================================");
+
+
+
+        //量词类 * + ? {n} {n,} {n,m}。不加中括号
+        // *: 相当于 >=0，a可以出现 0 次或者多次
+        var reg1 = /^a*$/;
+        console.log(reg1.test(' '));    //false
+        console.log(reg1.test('a'));    //true
+        console.log(reg1.test('aaa'));  //true
+        console.log(reg1.test('aaaaaaaa')); //true
+        console.log("==================================");
+
+        var reg2 = /^a+$/;  // +: 相当于 >=1，a可以出现1 次或者多次
+        console.log(reg2.test(' '));    //false
+        console.log(reg2.test('a'));    //true
+        console.log(reg2.test('aa'));   //true
+        console.log(reg2.test('aaaaaaa')); //true
+        console.log('==================================');
+
+        var reg3 = /^a?$/;  //?: a重复0次或者1次
+        console.log(reg3.test(' '));    //   false
+        console.log(reg3.test('a'));    //true
+        console.log(reg3.test('aaaaa')); //false
+        console.log("==================================");
+
+        // 4. {3 } 就是重复3次
+        var reg = /^a{3}$/;
+        console.log(reg.test(''));      //false
+        console.log(reg.test('a'));     //false
+        console.log(reg.test('aa'));    //false
+        console.log(reg.test('aaaaaa'));    //false
+        console.log(reg.test('aaa'));   //true
+        console.log("==================================");
+
+
+        // 5. {3, }  大于等于3
+        // var reg = /^a{3,}$/;
+        // console.log(reg.test(''));      //false
+        // console.log(reg.test('a'));     //false
+        // console.log(reg.test('aa'));    //false
+        // console.log(reg.test('aaaaaa'));    //true
+        // console.log(reg.test('aaa'));       //true
+        // console.log("==================================");
+
+
+
+        // 6. {3, 16}  大于等于3 并且 小于等于16
+        // var reg = /^a{3,16}$/;
+        // console.log(reg.test(''));      //false
+        // console.log(reg.test('a'));     //false
+        // console.log(reg.test('aa'));    //false
+        // console.log(reg.test('aaaaaa'));    //true
+        // console.log(reg.test('aaa'));       //true
+        // console.log(reg.test('aaaaaaaaaaaaaaaaaaaaa'));    //false
+
+
+
+
+
+    </script>
+</body>
+
+</html>

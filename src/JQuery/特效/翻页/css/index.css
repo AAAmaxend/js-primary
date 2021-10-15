@@ -1,0 +1,20 @@
+.heartCon {
+    position: relative;
+}
+.heart::before, .heart::after {
+    content: "";
+    width: 30px;
+    height: 45px;
+    background-color: red;
+    position: absolute;
+    border-radius: 15px 15px 0 0;
+}
+.heart::before {
+    transform: rotate(-45deg);
+}
+.heart::after {
+    transform: rotate(45deg);
+    left: 10px;
+}
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // window.onload = function () {
+        //     console.log("hupingping");
+        // }
+        // $(document).JQday01(function () {
+        //     consloe.log("hu");
+        // })
+        // $(document).JQday01(function () {
+        //     console.log("huping");
+        // })
+        // $(document).JQday01(function () {
+        //     console.log("hupin");
+        // })
+
+        $(function () {
+            $("#btn").click(function () {
+                if ($(this).val == "guandeng") {
+                    $("body").css({
+                        "background": "black"
+                    });
+                    $(this).val("kaideng");
+                } else if ($(this).val == "kaideng") {
+                    $("body").css({
+                        "background": "white"
+                    });
+                    $(this).val("guandeng");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btn" value="显示效果">
+    <div id="hushuai" style="height: 50px; width: 50px;"></div>
+    <script>
+        var btn = document.getElementById("btn");
+        var hushuai = document.getElementById("hushuai");
+        btn.onclick = function () {
+            hushuai.style.backgroundColor = "red";
+        }
+    </script>
+</body>
+
+</html>

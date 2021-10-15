@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态成员和实力成员</title>
+</head>
+
+<body>
+    <script>
+        //构造函数的属性和方法，我们称之为成员。成员可以添加
+        function Star(iname, age) {
+            this.iname = iname; //实例成员：构造函数内部通过this添加的成员
+            this.age = age;
+            this.sing = function () {
+                console.log('I can sing~');
+            }
+        }
+        var ldh = new Star('刘德华', 18);
+        console.log(ldh.iname); //实例成员 只能通过实例化的对象【ldh】来访问  刘德华
+        console.log(ldh.age); //18
+        console.log(Star.iname);//实例成员不能通过构造函数访问 undefined
+
+
+        //静态成员
+        Star.sex = 'male';
+        console.log(Star.sex);  //静态成员：反之，静态成员【sex】只能通过构造函数【Star】来访问 male
+        console.log(ldh.sex);  //静态成员【sex】不能通过实例化对象【ldh】。需要加prototype实例化对象才能访问访问  undefined
+
+
+
+    </script>
+
+</body>
+
+</html>

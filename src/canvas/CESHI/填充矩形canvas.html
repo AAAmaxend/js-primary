@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 500px; height: 50px;">
+        <button id="btn1">画一个矩形</button>
+        <button id="btn2">画一个矩形边框</button>
+        <button id="btn3">清除画布</button>
+    </div>
+    <canvas id="mycanvas" width="1000" height="600">
+        123
+    </canvas>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        //- 得到画布
+        var canvas = document.getElementById("mycanvas");
+        //- 获取上下文
+        var ctx = canvas.getContext("2d");
+
+        //- 填充矩形 fill
+        btn1.onclick = function () {
+            //- 填充颜色
+            ctx.fillStyle = "green";
+            //- 填充矩形
+            ctx.fillRect(100, 100, 200, 50);
+        }
+
+        //- 绘制矩形边框 stroke
+        btn2.onclick = function () {
+            //- 绘制边框颜色
+            ctx.strokeStyle = "red";
+            //- 绘制大小
+            ctx.strokeRect(200, 200, 200, 200)
+        }
+
+        //- 清除画布
+        btn3.onclick = function () {
+            ctx.clearRect(0, 0, 1000, 600);
+        }
+    </script>
+</body>
+
+</html>

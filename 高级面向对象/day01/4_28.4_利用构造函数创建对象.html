@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+
+<body>
+    <script>
+        //1.字面量创建对象
+        var obj_1 = {};
+
+        //2.new Object()创建对象
+        var obj_2 = new Object();
+
+        //3.利用构造函数创建对象
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+            this.sing = function () {
+                console.log('我会唱歌~');
+            }
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 20);
+        console.log(ldh);
+        console.log(zxy);
+        ldh.sing();
+
+
+    </script>
+
+</body>
+
+</html>

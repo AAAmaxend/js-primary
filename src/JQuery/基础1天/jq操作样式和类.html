@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        .current {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 100px auto;
+            transition: all 1s;
+        }
+
+        .now {
+            transform: rotate(360deg);
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="current"></div>
+    <script>
+        // jq操作样式
+        // $(function () {
+        //     $('div').css({
+        //         width: 400,
+        //         height: 400,
+        //         // 如果是复合属性则必须采取驼峰命名法，如果值不是数字，则需要加引号
+        //         backgroundColor: 'red'
+        //     })
+        // })
+
+        // jq操作类 添加、删除、切换
+        $(function () {
+            // $('div').click(function () {
+            //     $(this).addClass('now')
+            // })
+            $('div').click(function () {
+                $(this).removeClass('current')
+            })
+            // $('div').click(function () {
+            //     $(this).toggleClass('now')
+            // })
+
+        })
+    </script>
+</body>
+
+</html>

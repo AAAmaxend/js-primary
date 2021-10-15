@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>super关键字</title>
+</head>
+
+<body>
+    <script>
+        class Father {
+            constructor(surname) {
+                this.surname = surname;
+            }
+            saySurname() {
+                console.log('我的姓是：' + this.surname);
+            }
+            say() {
+                return '我是爸爸呀!';
+            }
+        }
+        class Son extends Father {      //子类继承父类的属性和方法
+            constructor(surname, firstname) {
+                super(surname);                //调用父类的构造方法
+                this.firstname = firstname;
+            }
+            sayFirstname() {
+                console.log('我的名是：' + this.firstname);
+            }
+            say() {
+                return super.say() + '的儿子'; //调用父类的普通函数
+            }
+        }
+        var damao = new Son('刘', '星');
+        damao.saySurname();
+        damao.sayFirstname();
+
+        console.log(damao.say());
+    </script>
+
+</body>
+
+</html>

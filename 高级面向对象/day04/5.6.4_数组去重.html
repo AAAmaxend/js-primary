@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        //第一种：利用对象的key的唯一性
+        // var arr = [1, 2, 2, 4, 5, null, "123", 123, "123", null, "abc", "345", "abc", "345",]
+        // var obj = {};
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (obj[arr[i]] !== undefined) {
+        //         arr.splice(i, 1);
+        //         i--;
+        //     } else {
+        //         obj[arr[i]] = arr[i];
+        //     }
+        // }
+        // console.log(arr);
+
+        //第二种：利用元素位置调换代替数组splice方法
+        var arr = [1, 2, 2, 4, 5, null, "123", 123, "123", null, "abc", "345", "abc", "345",]
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            if (obj[arr[i]] !== undefined) {
+                arr[i] = arr[arr.length - 1]
+                arr.length--;
+                // 数组长度减一，数组最后一位删除
+                i--;
+            } else {
+                obj[arr[i]] = arr[i];
+            }
+        }
+        console.log(arr);
+
+        //第三种：Array.filter和Array.indexOf方法结合
+        // var newArr = arr.filter(function (item, index) {
+        //     return (arr.indexOf(item) === index)
+        // });
+        // console.log(newArr);
+
+
+
+        //第四种：Array.indexOf方法
+        // let arr = [1, 2, 2, 4, null, null, '3', 'abc', 3, 5, 4, 1, 2, 2, 4, null, null, '3', 'abc', 3, 5, 4]
+        // let obj = {}
+
+        // let newArr = []
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (newArr.indexOf(arr[i]) === -1) newArr.push(arr[i])
+        // }
+
+        // //等同于 forEach 写法
+        // arr.forEach(item => newArr.indexOf(item) === -1 ? newArr.push(item) : false)
+
+        // console.log(newArr) // [1, 2, 4, null, "3", "abc", 3, 5]
+
+
+        //第五种：Array.includes方法
+        let newArr = []
+        for (var i = 0; i < arr.length; i++) {
+            if (!newArr.includes(arr[i])) newArr.push(arr[i])
+        }
+
+        //等同于 forEach 写法
+        arr.forEach(item => !newArr.includes(item) ? newArr.push(item) : '')
+
+        console.log(newArr)  // [1, 2, 4, null, "3", "abc", 3, 5]
+
+    </script>
+</body>
+
+</html>

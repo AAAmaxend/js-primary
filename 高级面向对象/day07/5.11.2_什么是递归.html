@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是递归</title>
+</head>
+
+<body>
+    <script>
+        // 如果一个函数在内部可以调用其本身，那么这个函数就是递归函数
+        // 函数自己调用自己就是递归函数。递归函数的作用和循环效果一样
+        // 由于递归很同意造成‘栈溢出（stack overflow）’。所以必须加上return退出条件
+        var count = 1;
+        function fn() {
+            console.log('this is 6 counts');
+
+            if (count == 6) {
+                return;
+            }
+            count++;
+            fn();
+        }
+        fn();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <script>
+        // 1.箭头函数作用：简化函数定义语法
+        const fn = () => {
+            console.log(123);
+        }
+        fn();  //123
+
+        // 2.1省略：在箭头函数中 如果函数体中只有一句代码 并且代码的执行结果就是函数的返回值 函数体大括号可以省略
+        const sum = (m, n) => m + n;
+        console.log(sum(10, 20));   //30
+
+        // 2.2省略：在箭头函数中 如果形参只有一个 形参外侧的夏鸥哦好也可以省
+        const gn = v => {
+            console.log(20);
+        }
+        gn(20); //20
+
+        // 3.箭头函数不绑定this 箭头函数没有自己的this关键字 如果在箭头函数中使用this this关键字将指向箭头函数定义位置中的this
+        function hn() {
+            console.log(this);
+            return () => {
+                console.log(this);
+
+            }
+        }
+        hn();   //Window。只有一行打印出来
+        const obj = { name: 'zhangsan' };
+        const resHn = hn.call();
+        resHn();    // 打印两行window
+
+
+
+
+
+    </script>
+</body>
+
+</html>

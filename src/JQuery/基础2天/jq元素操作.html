@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery遍历元素</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>4</div>
+    <div>7</div>
+    <script>
+        var sum = 0;
+        var arr = ["red", "green", "blue"]
+
+        //1、each()方法遍历元素 某个元素的each
+        $("div").each(function (i, domEle) {
+            $(domEle).css("color", arr[i])
+            sum += parseInt($(domEle).text());
+        })
+        console.log(sum);
+
+        //2、$.each()方法遍历元素 主要用于遍历数据、处理数据
+        //$ each某个对象
+        $.each($("div"), function (i, ele) {
+            console.log(i);
+            console.log(ele);
+        })
+        $.each(arr, function (i, ele) {
+            console.log(i);
+            console.log(ele);
+        })
+        $.each({
+            name: "andy",
+            age: 18
+        }, function (i, ele) {
+            console.log(i);
+            console.log(ele);
+        })
+
+    </script>
+</body>
+
+</html>

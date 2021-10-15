@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板字符串</title>
+</head>
+
+<body>
+    <script>
+        let name = `张三`;
+        let introduction = `你好，我叫${name}`;
+        console.log(introduction);
+
+
+        let result = {
+            name: 'lisi',
+            sex: 'male',
+            age: 22
+        }
+        let html = `
+            <div>
+                <span>${result.name}</span> 
+                <span>${result.sex}</span>   
+                <span>${result.age}</span>
+            </div>
+        `
+        console.log(html);
+
+        const fn = () => {
+            return '引用fn函数'
+        }
+        let arrFn = `我是引用的引子,${fn}`;
+        let arrFn2 = `我是引用的引子,${fn()}`;
+        console.log(arrFn);
+        console.log(arrFn2);
+
+
+
+    </script>
+</body>
+
+</html>

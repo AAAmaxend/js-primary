@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+    </div>
+    <script>
+        // $(function () {
+        //     //1、隐式迭代 给所有按钮绑定事件
+        //     $('div').children('button').click(function () {
+        //         //2、当前元素样式改变
+        //         //3、设置其他兄弟去掉相同样式
+        //         $(this).css('background', 'pink');
+        //         $(this).siblings('button').css('background', '')
+        //     })
+        // })
+
+        $(function () {
+            $('button').click(function () {
+                // $(this).css('background', 'yellow');
+                // $(this).siblings('button').css('background', '')
+
+                //链式编程
+                $(this).css('background', 'red').siblings('button').css('background', '')
+            })
+        })
+    </script>
+</body>
+
+</html>

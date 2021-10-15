@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01预解析</title>
+</head>
+
+<body>
+    <h2>预解析先把坑给占了起</h2>
+    <script type="text/javascript">
+        // //        console.log(num);//num is not defined
+
+
+        // //问2
+        // console.log(num);//undefined
+        // var num = 10;
+        // //相当于执行了以下的代码
+        // var num;
+        // console.log(num);
+        // num = 10;
+
+
+        // //问3
+        // fn();//阶级关系的变化!
+        // function fn() {
+        //     console.log("阶级关系的变化!");
+        // }
+
+
+        // //问4
+        // // fn2();//fn2 is not a function;匿名函数
+        // // var fn2 = function () {
+        // //     console.log("工人阶级开始登上历史舞台!");
+        // // }
+        // // 相当于执行了以下代码
+        // // var fn2;
+        // // fn2();
+        // // fn2 = function () {
+        // //     console.log("工人阶级开始登上历史舞台!");
+        // // }
+
+        // // javascript代码是由浏览器中javascript解析器来执行
+        // // javascript解析器执行代码分为两步:预解析+代码执行
+        // // 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
+        // // 代码执行： 从上到下执行JS语句。
+        // // 预解析:变量的声明作用域提升，不提升赋值.函数的声明作用域提升.不提升调用。
+        // // 预解析只会发生在通过 var 定义的变量和 function 上。学习预解析能够让我们知道为什么在变量声明之前访问变量的值是 undefined，为什么在函数声明之前就可以调用函数。
+
+        // //案例1
+        // alert(a);
+        // var a = 1;
+        // alert(a)
+        // function a() {
+        //     return false;
+        // }
+
+
+        // 案例3
+        var a = 18;
+        f1();
+        function f1() {
+            var b = 9;
+            console.log(a);//undefined
+            console.log(b);//9
+            var a = '123';
+        }
+        //相当于一下代码
+        var a;
+        function f1() {
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+        a = 18;
+
+        // 案例4
+        f1();
+        console.log(x);
+        console.log(y);
+        console.log(z);
+        function f1() {
+            var z = y = x = 8;
+            console.log(z);
+            console.log(y);
+            console.log(x);
+        }//前8个为8,最后一个方法未定义。var 声明在a前面，所以a未定义
+        //相当于以下代码
+        function f1() {
+            var x = y = z = 8;
+            console.log(x);
+            console.log(y);
+            console.log(z);
+        }
+        f1();
+        console.log(z);
+        console.log(y);
+        console.log(x);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <!--    引入CDN-->
+    <script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <p id="p1"></p>
+    <div id="div1" style="height: 200px;width: 200px;border: 1px solid red"></div>
+    <script>
+        $(function () {
+            $('#div1').mousemove(function (eve) {
+                $('#p1').text("X:" + eve.pageX + "  Y:" + eve.pageY);
+            })
+        })
+    </script>
+</body>
+
+</html>

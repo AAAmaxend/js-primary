@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数面试题</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
+        var age = 100;
+        var obj = {
+            age: 20,
+            say: () => {
+                alert(this.age);    //指的是上下文的变量this
+            }
+        }
+        obj.say();  // 弹出警告框100
+    </script>
+</body>
+
+</html>

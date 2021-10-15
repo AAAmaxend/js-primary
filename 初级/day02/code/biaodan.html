@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+    <form action="" method="POST" name="myfrom" id="myform">
+        <table id="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="l">您的姓名:</td>
+                <td>
+                    <input type="text" id="user">
+                </td>
+
+            </tr>
+            <tr>
+                <td class="l">请输入密码:</td>
+                <td>
+                    <input type="password" id="pwd">
+                </td>
+            </tr>
+            <tr>
+                <td class="l">请再次输入密码:</td>
+                <td>
+                    <input type="password" id="repwd">
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="注册" id="btn">
+                </td>
+            </tr>
+        </table>
+        <!-- 1.姓名不能为空,且不能包含数字
+        2.密码不能为空,且不能少于6位数字,两次输入的密码必须相同 -->
+        <script>
+            $("#btn").click(function () {
+                // 1.姓名不能为空,
+                var username = $("#user").val;
+                if (username == "") {
+                    alert("username should not null!");
+                    return false;
+                }
+                // 且不能包含数字
+                for (var i = 0; i < username.length; i++) {
+                    var indexname = username.substring(i, i + 1);
+                    if (isNaN(indexname) == false) {
+                        alert("user should not numbers!");
+                        return false;
+                    }
+                }
+            })
+        </script>
+    </form>
+</body>
+
+</html>

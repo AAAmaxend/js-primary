@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5新增方法：filter筛选数组方法</title>
+</head>
+
+<body>
+    <script>
+        var arr = [99, 123, 456, 789, 66, 33, 1, 2, 4, 5, 7, 8];
+
+        //filter筛选数组。直接返回一个新数组
+        var newArr = arr.filter(function (value, index, array) {
+            return value % 3 === 0;
+        })
+        console.log(newArr);    //Array(6)
+        console.log(newArr.toString);   //native code
+        console.log(newArr.toLocaleString); //native code
+
+
+
+    </script>
+</body>
+
+</html>

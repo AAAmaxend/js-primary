@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        span {
+            display: block;
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        // DOM对象和JQ对象
+        // 1.用原生JS 获取来的对象就是DOM对象
+        var myDiv = document.querySelector('div');
+        var mySpan = document.querySelector('span');
+        console.dir(myDiv);
+        console.log(myDiv);
+
+        // 2.JQ方法获取的元素就是JQ对象。本质：用$把DOM对象进行包装
+        $('div');  //$('div')就是一个JQ对象
+        console.dir($('span'));
+        // 3.JQ对象只能使用jq方法。DOM对象则使用原生的JS属性和方法 =====> 伪数组形式存储
+
+
+        // 隐藏span的DOM操作√
+        mySpan.style.display = 'none';
+        // 隐藏div的JQ操作√
+        $('div').hide();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply()改变函数内this指向</title>
+</head>
+
+<body>
+    <script>
+        //2.apply() 应用 运用的意思
+        var o = {
+            name: 'andy'
+        };
+        function fn(arr) {
+            console.log(this);  //Object
+            console.log(arr);   //red
+
+        }
+        fn.apply(o, ['red']);
+        //1.也是调用函数 第二个可以改变函数内部的this指向
+        //2.但它的参数必须是数组【伪数组】
+        //3.apply 的主要应用比如借助数学内置对象求数组最大值Math。max()
+
+
+        var arr = [99, 100, 1, 0, 45, 62];
+        var max = Math.max.apply(Math, arr);
+        var min = Math.min.apply(Math, arr);
+        console.log('最大值：' + max, '最小值：' + min);
+
+
+
+
+
+
+
+        // 因此 apply 主要跟数组有关系，比如使用 Math.max() 求数组的最大值 
+    </script>
+</body>
+
+</html>

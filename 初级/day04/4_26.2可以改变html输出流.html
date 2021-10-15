@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_26.2改变html输出流</title>
+    <script src="vue.js"></script>
+
+</head>
+
+<body>
+    <!--改变html : 第一小节 -->
+    <script>
+        document.write(Date());//日期输出
+    </script>
+
+
+    改变html 第二小节
+    <div>
+        <p id="p1">这是一个文本</p>
+        <h4 id="h_4">这是一个h4的标签</h4>
+    </div>
+    <script>
+        // 修改HTML内容的最简单方法是:使用innerHTML。eg：document.getElementById("app").innerHTML="web学习";
+        // document.getElementById("p1").innerHTML = "这是一个新文本";
+
+
+        var h_4 = document.getElementById("h_4");
+        h_4.innerHTML = "新h4";
+
+    </script>
+
+
+    <div>
+        <img src="../imgs/xixi.jpg" alt="" id="image">
+    </div>
+    <script>
+        document.getElementById("image").src = "../imgs/侄子.jpg";
+    </script>
+
+
+    改变HTML元素的属性,使用document.getElementById("id名").attribute=新属性值。eg：改变了img元素的src属性
+</body>
+
+</html>

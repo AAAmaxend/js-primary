@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相册</title>
+
+<body>
+    <h2>
+        大帅哥
+    </h2>
+    <div class="imagegalley">
+        <a href="../day02/images/QQ图片20200830110337.jpg" title="pict1">
+            <img src="../day02/images/QQ图片20200830110337.jpg" alt="图片1" width="100px">
+        </a>
+        <a href="../day02/images/QQ图片20200930072016.jpg" title="pict2">
+            <img src="../day02/images/QQ图片20200930072016.jpg" alt="图片2" width="100px">
+        </a>
+        <a href="../day02/images/QQ图片20200930072025.jpg" title="pict3">
+            <img src="../day02/images/QQ图片20200930072025.jpg" alt="图片3" width="100px">
+        </a>
+        <a href="../day02/images/QQ图片20200930072540.jpg" title="pict4">
+            <img src="../day02/images/QQ图片20200930072540.jpg" alt="图片4" width="100px">
+        </a>
+        <a href="../day02/images/nephew.jpg" title="pict5">
+            <img src="../day02/images/nephew.jpg" alt="图片5" width="100px">
+        </a>
+    </div>
+
+    <script>
+        //获取大的div的id号
+        var imagegally = document.getElementById('imagegelley');
+        var links = imagegally.getElementsByTagName('a');
+        console.log(links);
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];   //获取到a
+            //获取最位图片的id
+            var image = document.getElementById('image');
+            image.src = link.href;
+            return false;
+        }
+    </script>
+</body>
+
+</html>

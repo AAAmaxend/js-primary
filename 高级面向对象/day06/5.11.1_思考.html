@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思考</title>
+</head>
+
+<body>
+    <script>
+        // 思考题1
+        // var name = 'the window';
+        // var object = {
+        //     name: 'my object',
+        //     getNameFunction: function () {
+        //         return function () {
+        //             return this.name;
+        //         }
+        //     }
+        // };
+        // console.log(object.getNameFunction()());     // the window
+        // var f1 = object.getNameFunction();
+        // //类似于
+        // var f2 = function () {
+        //     return this.name;
+        // }
+        // f2();
+
+
+        // 思考题2
+        var name = 'that window';
+        var object = {
+            name: 'my object',
+            getNameFunction: function () {
+                var that = this;
+                return function () {
+                    return that.name;
+                }
+            }
+        }
+        console.log(object.getNameFunction()()); // my object
+
+
+    </script>
+</body>
+
+</html>

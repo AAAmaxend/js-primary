@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendChild追加列表项</title>
+</head>
+
+<body>
+    追加操作
+    <ul id="list">
+        <li>coffee</li>
+        <li>tea</li>
+        <li>juice</li>
+    </ul>
+    <button onclick="myFunction()">点我提醒</button>
+    <script>
+        function myFunction() {
+            var node = document.createElement('li');   //追加的节点
+            var textnode = document.createTextNode('water'); //追加的文本
+            node.appendChild(textnode); //执行追加
+            // document.getElementsByClassName('list').appendChild(node);
+            document.getElementById('list').appendChild(node);  //执行追加
+        }
+    </script>
+</body>
+
+</html>

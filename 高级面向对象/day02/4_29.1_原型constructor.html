@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型constructor</title>
+</head>
+
+<body>
+    <script>
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+        }
+
+
+        Star.prototype.sing = function () {
+            console.log('I can sing~');
+        }
+        Star.prototype.moive = function () {
+            console.log('I can make a movie~');
+        }
+
+
+        Star.prototype = {
+            //如果修改了原来的原型对象，给原型对象赋值的是一个 对象，则必须手动地利用constructor指回原来的构造函数
+            constructor: Star,
+            sing: function () {
+                console.log('I can sing~');
+
+            },
+            moive: function () {
+                console.log('I can make a moive~');
+
+            }
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 20);
+        console.log(Star.prototype);    //原型对象prototype:Object
+        console.log(ldh.__proto__);     //对象原型__proto__:Object
+        console.log(ldh.sing);//调用方法
+
+        //constructor指回构造函数本身
+        console.log(Star.prototype.constructor);
+        console.log(ldh.__proto__.constructor);
+
+
+
+    </script>
+</body>
+
+</html>

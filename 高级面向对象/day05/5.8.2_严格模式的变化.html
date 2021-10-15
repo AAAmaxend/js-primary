@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式的变化</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        // 1.严格模式下变量必须先声明再使用
+        var num = 10;
+        num = '存储管理';
+        console.log(num);   // 存储管理
+
+        // 2。严格模式下，不饿能随意删除已经声明好的变量
+        // delete num;     
+        //Uncaught SyntaxError: Delete of an unqualified identifier in strict mode.
+
+        // 3.严格模式下，全局作用域中函数中的this指向undefined
+        function fn() {
+            console.log(this);  //undefined
+        }
+        fn();
+
+        // 4.严格模式下，构造函数若不加new调用，this指向的是undefined，如果给他赋值就会报错
+        function Star() {
+            this.sex = 'male';
+        }
+        Star(); // Uncaught TypeError: Cannot set property 'sex' of undefined
+
+        // 5.定时器this 还是指向window
+        setTimeout(function () {
+            console.log(this);  //window
+
+        }, 3000);
+
+        // 6.严格模式下，函数的参数名不允许有重名
+        function f(a, a) {
+            console.log(a + a);
+        }
+        f(1, 2);    // Uncaught SyntaxError: Duplicate parameter name not allowed in this context
+
+    </script>
+</body>
+
+</html>

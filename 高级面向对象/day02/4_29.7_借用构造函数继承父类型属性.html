@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借用构造函数继承父类型属性</title>
+</head>
+
+<body>
+    <script>
+        function Father(fname, fage) {
+            this.fname = fname;     //this指向父构造函数的实例对象
+            this.fage = fage;
+        }
+
+        function Son(sname, sage, score) {
+
+            //通过call()方法把父类的this指向子类的this对象实例。这样就可以实现子类继承父类的属性
+            //个人感觉就是call()方法省去了子类的【this.sname = sname;】的代码
+            Father.call(this, sname, sage);
+            this.score = score;
+        }
+        var ldh = new Son('刘德华', 18, 60);
+        console.log(ldh);
+
+    </script>
+</body>
+
+</html>

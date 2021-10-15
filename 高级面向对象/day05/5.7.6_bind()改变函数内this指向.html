@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind()</title>
+</head>
+
+<body>
+    <div>
+        <button>click</button>
+        <button>click</button>
+        <button>click</button>
+    </div>
+    <script>
+        //3.bind() 绑定 捆绑的意思。
+        // bind() 方法不会调用函数。但是能改变函数内部this 指向
+        var o = {
+            name: 'andy'
+        };
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+
+        };
+        var f = fn.bind(o);  //没有输出，只是绑定不会调用
+        f();  //因此f已经成为了一个函数。 返回由指定的 this 值和初始化参数改造的原函数拷贝
+        //1.不会调用原来的函数  可以改变原来函数内部的this指向
+        //2.返回的原函数改变this之后产生的新函数
+
+        //3.如果有的函数我们不需要立即调用，但是又想改变这个函数内部的this指向此时用bind
+        //4.我们有一个按钮，当我们点击了之后，仅仅用这个按钮，2秒钟之后开启这个按钮
+        var btns = document.querySelectorAll('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                this.disabled = true;   //这个this指向的是 btn这个按钮
+                setTimeout(function () {
+                    this.disabled = false;  //定时器函数里面的this指向的是window，window没有disabled属性
+                }.bind(this), 2000);  //这个this指向的是btn这个对象
+            }
+        }
+
+        // var btn = document.querySelector('button');
+        // btn.onclick = function () {
+        //     this.disabled = true;   //这个this指向的是btn 这个按钮
+        //     setTimeout(function () {
+        //         this.disabled = false;
+        //     }.bind(this), 3000);     //此时this指向的是btn
+        // }
+
+
+
+    </script>
+</body>
+
+</html>

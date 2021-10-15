@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .father {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        } */
+
+
+
+
+        .back {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            right: 30px;
+            bottom: 100px;
+            display: none;
+        }
+
+        .container {
+            width: 900px;
+            height: 600px;
+            background-color: skyblue;
+            margin: 400px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // 1、offset()设置 获取元素偏移，相对于文档的便宜坐标
+        $(function () {
+            console.log($(".son").offset());
+            console.log($(".son").offset().top);
+
+            $(".son").offset({  //修改偏移量
+                top: 200,
+                left: 300
+            });
+            console.log($(".son").offset());
+            console.log($(".son").position()); //只能获取不能设置
+
+
+
+
+
+            $(document).scrollTop(100);  //可以获取，可以设置
+
+            // 2、被卷去的头部scrollTop() 被卷去的左侧scrollLeft()
+            var boxTop = $(".container").offset().top;
+
+            $(window).scroll(function () {  //页面滚动事件
+                // console.log(11);
+                console.log($(document).scrollTop());
+                if ($(document).scrollTop() >= boxTop) {
+                    $(".back").fadeIn();
+                    // $(".container").fadeIn();
+                } else {
+                    $(".back").fadeOut();
+                    // $(".container").fadeOut();
+                }
+            });
+            //返回顶部
+            $(".back").click(function () {
+                // $(document).scrollTop(0); //无动画效果
+
+                $("body,html").stop().animate({  //只能是html或body元素做动画，不能是文档
+                    scrollTop: 0
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>

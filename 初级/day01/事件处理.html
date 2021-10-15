@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="div">
+        <button id="btn1">请点击按钮..</button>
+    </div>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function () { alert("你好,DOM0事件处理流程序1") };
+        btn1.onclick = function () { alert("你好,DOM0事件处理流程序2") };
+        // btn1.onclick = null;
+    </script> -->
+
+    事件处理
+    1.html事件处理,直接添加到innerHTML结构中
+    2.DOM0级事件处理,一个函数赋值给一个事件处理程序属性【会被覆盖】
+    3.DOM2级事件处理,addEventListener("事件名",函数名,布尔值);布尔值true事件捕获,false事件冒泡【会被轮流执行】
+    4.IE浏览器事件处理程序,attachEvent,detachEvent
+
+    <!-- <div id="div">
+        <button id="btn1">请点击按钮..</button>
+    </div>
+    <script>
+        //和上面的比较,多个函数传入addEventListener("click/close",函数名),不会被覆盖,而会一个一个过来
+        var btn1 = document.getElementById("btn1");
+        btn1.addEventListener("click", demo01);
+        btn1.addEventListener("click", demo02);
+        btn1.addEventListener("click", demo03);
+        function demo01() {
+            alert("DOM2的事件处理程序123");
+        }
+        function demo02() {
+            alert("DOM2的事件处理程序456");
+        }
+        function demo03() {
+            alert("DOM3的事件处理程序789");
+        }
+        btn1.removeEventListener("click", demo02);
+    </script> -->
+
+    <div>
+        <button id="btn1">qingdianji</button>
+    </div>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        if (btn1.addEventListener) {
+            btn1.addEventListener("click", demo04);
+        } else if (btn1.attachEvent) {
+            btn1.attachEvent("onclick", demo04);
+        } else {
+            btn1.onclick = demo04();
+        }
+        function demo04() {
+            alert("hai~~~");
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mycanvas {
+            display: block;
+            border: 1px solid #000;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="1600" height="1600"></canvas>
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        var ctx = canvas.getContext("2d");
+        console.log(ctx);
+
+        //- 画布的尺寸
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+
+
+        //- 球类
+        function Ball() {
+            this.x = parseInt(Math.random() * canvas.width);
+            this.y = parseInt(Math.random() * canvas.height);
+            this.r = 10;
+            this.color = getRandom();
+            this.dx = parseInt(Math.random() * 10) - 5;
+            this.dy = parseInt(Math.random() * 10) - 5;
+
+            //- 通过数组去维护小球
+            ballArr.push(this);
+            //- 小球单线连接。自己在数组中的位置记录一下
+            this.index = ballArr.length - 1;
+        }
+
+        //- 小球的更新动画----碰壁折返
+        Ball.prototype.update = function () {
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x < this.r || this.x > canvas.width) { //- 表示小球走出屏幕,进行反弹
+                this.dx = -this.dx;
+            }
+            if (this.y < this.r || this.y > canvas.height) {
+                this.dy = -this.dy;
+            }
+        }
+
+        //- 小球的渲染
+        Ball.prototype.render = function () {
+            ctx.beginPath();
+            ctx.globalAlpha = 1; //- 透明度
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+
+            //- 小球连线逻辑.划线只画比自己大的一方就可以，否则就是每一次都是两根线
+            for (var i = this.index; i < ballArr.length; i++) {
+                if (Math.abs(ballArr[i].x - this.x) < 150 && ballArr[i].y - this.y) {
+                    ctx.strokeStyle = "#000";
+                    ctx.beginPath();
+                    //- 根据当前的两个已经连线的小球距离进行线的透明度设置
+                    ctx.globalAlpha = 10 / Math.sqrt(Math.pow(ballArr[i].x - this.x, 2) + Math.pow(ballArr[i].y -
+                        this.y, 2))
+                    ctx.moveTo(this.x, this.y);
+                    ctx.lineTo(ballArr[i].x, ballArr[i].y);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        }
+        var ballArr = [];
+
+        //- 创建20个小球
+        for (var i = 0; i < 20; i++) {
+            new Ball();
+        }
+
+        //- 定时器动画
+        setInterval(function () {
+            //- 清除画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            //- 更新和渲染
+            for (var i = 0; i < ballArr.length; i++) {
+                ballArr[i].update();
+                ballArr[i].render();
+            }
+        }, 20)
+
+        //- 设置随机颜色
+        function getRandom() {
+            var allType = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+            var allTypeArr = allType.split(",");
+            console.log(allTypeArr);
+
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                var random = parseInt(Math.random() * allTypeArr.length)
+                console.log(random);
+
+                color += allTypeArr[random];
+                // console.log(color);
+
+            }
+            return color;
+        }
+        console.log(getRandom());
+    </script>
+</body>
+
+</html>

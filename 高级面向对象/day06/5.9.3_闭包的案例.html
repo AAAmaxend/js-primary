@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的案例</title>
+</head>
+
+<body>
+    <div>
+        <ul class="nav">
+            <li>梅菜扣肉</li>
+            <li>宫保鸡丁</li>
+            <li>鱼香肉丝</li>
+            <li>糖醋排骨</li>
+        </ul>
+    </div>
+
+    <script>
+        // 闭包应用 - 点击li输出当前li的索引号
+        // 1.动态添加属性的方式
+        // 获取Selector
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+
+        // 2.常规方式：循环绑定事件
+        // for (var i = 0; i < lis.length; i++) {
+        //     //获取当前li的索引号
+        //     lis[i].index = i;
+
+        //     lis[i].onclick = function () {
+        //         console.log(this.index);
+        //     }
+        // }
+
+        // 2.利用闭包的方式得到当前小li的索引号
+        for (var i = 0; i < lis.length; i++) {
+            //利用for循环创建了4个立即执行函数。作用域i的使用
+            (function (i) {
+                // console.log(i);
+
+                // 鼠标点击才执行
+                lis[i].onclick = function () {
+                    console.log(i);
+
+                }
+
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

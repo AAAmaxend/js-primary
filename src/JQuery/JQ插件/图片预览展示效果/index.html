@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>纯js仿Medium.com图片缩放预览插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" /><!--CSS RESET-->
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css"><!--演示页面样式，使用时可以不引用-->
+	<style>
+  /* Basic styles */
+  body {
+    padding: 1vw 2vw;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+  }
+
+  img {
+    width: 300px;
+  }
+
+  a {
+    color: #000;
+    font-weight: 600;
+  }
+
+  /* Example: Lazy Lightense */
+  .lightense-lazy {
+    filter: blur(16px);
+    transform: scale(1.2);
+  }
+
+  .lightense-lazy-wrap {
+    position: relative;
+    width: 300px;
+    height: 115px;
+    margin: 0 auto;
+  }
+
+  .lightense-lazy-thumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  .lightense-lazy-large {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .lightense-lazy-wrap.on .lightense-lazy-thumb {
+    opacity: 0;
+  }
+
+  .lightense-lazy-wrap.on .lightense-lazy-large {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>纯js仿Medium.com图片缩放预览插件 <span>A dependency-free pure JavaScript image zooming library</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/jQuery/Image-Effects/201812105448.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<div class="htmleaf-content">
+			<p><img src="https://d349cztnlupsuf.cloudfront.net/tianjin-impression-brochure-03-thumb.jpg?test" data-original="https://d349cztnlupsuf.cloudfront.net/tianjin-impression-brochure-03.jpg" class="lightense-lazy"></p>
+
+			<p><img src="images/girls_dead_monster_logo.png"></p>
+
+			<p><img src="images/railgun-logo.png" data-lightense-background="rgba(23, 29, 54, .8)"></p>
+
+			<p><img src="https://d349cztnlupsuf.cloudfront.net/imouto-logo-large.png" class="no-lightense"></p>
+
+			<p><img src="https://d349cztnlupsuf.cloudfront.net/delicious.com-logo.png" data-lightense-padding="0"></p>
+
+			<p><img src="images/almace-scaffolding-text-vertical.svg" data-lightense-background="rgba(255, 1, 180, .2)"></p>
+		</div>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/Image-Effects/201811075402.html">
+			  <img src="related/1.jpg" width="300" alt="jQuery的图片展示插件imgZoomAndRotate"/>
+			  <h3>jQuery的图片展示插件imgZoomAndRotate</h3>
+			</a>
+			<a href="http://www.htmleaf.com/jQuery/Lightbox-Dialog/201506112016.html">
+			  <img src="related/2.jpg" width="300" alt="jQuery仿Medium网站响应式lightbox特效"/>
+			  <h3>jQuery仿Medium网站响应式lightbox特效</h3>
+			</a>
+		</div>
+	</div>
+	
+	<script src="js/lightense.js"></script>
+	<script>
+		  // Init Lightense
+		  window.addEventListener('load', function () {
+		    Lightense('img:not(.no-lightense),.lightense');
+		  }, false);
+
+		  // Example: Lazy Lightense
+		  document.addEventListener('DOMContentLoaded', function (e) {
+		    function createDom (type, cssClass) {
+		      var div = document.createElement(type);
+		      div.className = cssClass;
+		      return div;
+		    }
+
+		    var thumb = document.querySelector('.lightense-lazy');
+		    var original = new Image();
+
+		    // Init wrapper
+		    var wrap = createDom('div', 'lightense-lazy-wrap');
+		    thumb.parentNode.insertBefore(wrap, thumb);
+		    wrap.appendChild(thumb);
+
+		    // Wrap thumbnail
+		    var thumbWrap = createDom('div', 'lightense-lazy-thumb');
+		    thumbWrap.appendChild(thumb);
+		    wrap.appendChild(thumbWrap);
+
+		    // Wrap original
+		    var originalWrap = createDom('div', 'lightense-lazy-large');
+		    original.src = thumb.dataset.original;
+		    originalWrap.appendChild(original);
+		    wrap.appendChild(originalWrap);
+
+		    // Load original image
+		    original.addEventListener('load', function () {
+		      wrap.classList.add('on');
+		    }, false);
+		  });
+		</script>
+</body>
+</html>

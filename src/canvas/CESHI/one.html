@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 淘宝初始化 */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        blockquote,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        pre,
+        form,
+        fieldset,
+        legend,
+        button,
+        input,
+        textarea,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 12px/1.5tahoma, arial, \5b8b\4f53;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+        }
+
+        address,
+        cite,
+        dfn,
+        em,
+        var {
+            font-style: normal;
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: couriernew, courier, monospace;
+        }
+
+
+        #item {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid blue;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="300" height="300" id="myCanvas">
+        当前浏览器不支持
+    </canvas>
+
+    <div id="item"></div>
+    <script>
+        // canvas画布的使用
+        var canvas = document.getElementById("myCanvas"); //- 得到canvas
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "green"; //- 先给颜色显示  
+        ctx.fillRect(100, 100, 200, 50); //- 后绘制矩形
+
+
+
+        // console.log(([]) ? true : false);
+        // console.log(([] == false) ? true : false);
+        // console.log(({}) == false ? true : false);
+        var isOdd = false;
+        for (var i = 1; i <= 2; ++i) {
+            if (i % 2 == 1) {
+                isOdd = true;
+            } else {
+                isOdd = false
+            }
+            var a = 0
+            a += i * (isOdd ? 1 : -1);
+        }
+        console.log(a);
+    </script>
+</body>
+
+</html>

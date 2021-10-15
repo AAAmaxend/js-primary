@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等于_全等于</title>
+    <script type="text/javascript">
+        // 2021/3/21 下午17:07
+        // Javascript的关系运算
+        // 等于==,全等于===
+        //  ==是单纯的字面数值关系比较运算,===还有数据类型的比较
+        var a = 12;
+        var b = "12";
+        alert(a == b);//true
+        alert(a === b);//false
+
+
+        // Javascript的逻辑运算【js中所有的变量都可以作为boolean类型去用：0、null、undefined、""都是false】
+        // 且&&,或||,取反!
+        var m = 0;
+        if (m){
+            console.log(m + " is true.");
+        }else {
+            console.log(m + " is false.");
+        }
+        var n = null;
+        if (n){
+            console.log(n + " is true.");
+        }else {
+            console.log(n + " is false.")
+        }
+        var o = undefined;
+        if (o){
+            console.log(o + " is true.")
+        }else {
+            console.log(o + " is false.")
+        }
+
+        // 且运算&&【两种情况】：
+        // 1：表达式全真时，返回最后一个表达式的值。
+        // 2：只要表达式有一个为假时，返回第一个为假的值。
+        // 或运算||【两种情况】：
+        // 1：表达式全假时，返回最后一个表达式的值。
+        // 2：只要表达式有一个为真时，返回第一个为真的值。
+        var x = "aaa";
+        var y = true;
+        var z = false;
+        var p = null;
+        var q = 6;
+        var j = undefined;
+        console.log(x && y && q);//返回 q的值6
+        console.log(x && z && p);//返回p的值false
+        console.log(z || p || j);//undefined
+        console.log(z || x || y || q);//aaa
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

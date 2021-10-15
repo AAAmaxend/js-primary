@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动触发事件</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="text">
+    <script>
+        // 元素事件$("div").click()
+        $(function () {
+            $("div").on("click", function () {
+                $("div").css("background", "red")
+            })
+
+
+            //自动触发事件
+            // $("div").click() //调用函数自动触发
+            // $("div").trigger("click")
+            // $("div").triggerHandler("click") //但是不会触发元素的默认行为
+
+            $("input").on("focus", function () {  //只要input获得焦点事件，就触发事件
+                $(this).val("How are you?")
+            })
+            $("input").triggerHandler("focus")
+        })
+    </script>
+</body>
+
+</html>

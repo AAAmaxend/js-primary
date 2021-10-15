@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用const关键字声明常量</title>
+</head>
+
+<body>
+    <script>
+        注意:
+        // 1.使用const关键字声明的常量具有块级作用域
+        if (true) {
+            const a = 10;
+            console.log(a); //10
+
+        }
+        // console.log(a);//a is not defined
+
+        // 2.使用const关键字声明的常量必须赋初始值
+        const PI = 3.14;
+        // PI = 100;  // Assignment to constant variable.。常量不能想变量一样被更改值
+        console.log(PI);
+        const arr = [100, 200];
+        arr[0] = 123;  // 123,200
+        console.log(arr);
+        arr = [789, 456];   // Assignment to constant variable.
+        console.log(arr);
+
+
+
+
+    </script>
+</body>
+
+</html>

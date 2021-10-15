@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符类</title>
+</head>
+
+<body>
+    <div>
+        <h2>
+            正则表达式中的特殊字符：字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内。
+        </h2>
+        <p>
+            1. [] 方括号： /[abc]/.test('andy') // true ,后面的字符串只要包含 abc 中任意一个字符，都返回 true
+        </p>
+        <p>
+            2. [-] 方括号内部范围符- ： /^[a-z]$/.test(c') // true 这里表示 a 到 z 26个英文字母都可以。注意和边界符 ^ 区别，边界符写到方括号外面。
+        </p>
+        <p>
+            3. ^[] 方括号内部取反符^ : /[^abc]/.test('andy') // false,方括号内部加上 ^ 表示取反，只要包含方括号内的字符，都返回 false 。
+        </p>
+        <p>
+            4. 字符组合 : /[a-z1-9]/.test('andy') // true,，这里表示包含 a 到 z 的26个英文字母和 1 到 9 的数字都可以。
+        </p>
+    </div>
+    <script>
+        // var rg = /abc/; //没有中括号。只要包含abc这样连续的字符就可以。
+
+        // 字符串：[]表示有一系列字符可供选择，只要有匹配其中一个就可以了。加中括号
+        // [字符串]
+        var rg = /[abc]/;   //有中括号。只要包含一个或者多个a b c，或者同时出现abc都返回true
+        console.log(rg.test('andy aab'));   //true
+        console.log(rg.test('baby'));       //true
+        console.log(rg.test('red'));        //false
+        console.log("================================");
+
+
+        // [^字符串$]
+        var rg2 = /^[abc]$/;    //有中括号。三选一，必须只有是a b c三者中单字符才返回true
+        console.log(rg2.test('aaa'));   //false
+        console.log(rg2.test('a'));     //true
+        console.log(rg2.test('andy'));  //false
+        console.log(rg2.test('ab'));    //false
+        console.log("================================");
+
+
+        // [^字符1-字符2$]
+        var rg3 = /^[a-z]$/;    //有中括号。有26个字母任何一个字母才返回true
+        console.log(rg3.test('a'));     //true
+        console.log(rg3.test('aaa'));   //false
+        console.log(rg3.test('A'));     //false
+        console.log(rg3.test(6));       //false
+        console.log("================================");
+
+
+        // [^ $]
+        var rg4 = /[^a-z$]/;    //var rg3 = /^[a-z]$/意思是26个字符有其一就返回true、 var rg4 = /[^a-z$]/意思是取反，没有出现a - z $这四个字符就返回true
+        console.log(rg4.test('abcz'));  //false
+        console.log(rg4.test('VV'));    //true
+        console.log("================================");
+
+
+        // 字符组合
+        var reg = /^[a-zA-Z0-9_-]$/;   //有中括号。有26个字母(大小写都可以)、数字0-9、字符_ - @ 都返回true
+        console.log(reg.test('aaa'));   //false
+        console.log(reg.test('a'));     //true
+        console.log(reg.test('A'));     //true
+        console.log(reg.test('6'));     //true
+        console.log(reg.test('@'));     //false
+        console.log("================================");
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

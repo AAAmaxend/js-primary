@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            display: block;
+        }
+
+        .heartCon {
+            position: relative;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 30px;
+            height: 45px;
+            background-color: red;
+            position: absolute;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .heart::before {
+            transform: rotate(-45deg);
+        }
+
+        .heart::after {
+            transform: rotate(45deg);
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="heartCon">
+                <div class="heart"></div>
+            </div>
+        </li>
+        <li>
+            <div class="heartCon">
+                <div class="heart"></div>
+            </div>
+        </li>
+        <li>
+            <div class="heartCon">
+                <div class="heart"></div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

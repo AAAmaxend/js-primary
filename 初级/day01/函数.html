@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<!-- 网页加载onload完毕事件后,页面反应,在body中添加事件 -->
+
+<body onload="onLoad()">
+
+    <!-- <script>   //函数数值传参
+        function demo01(a, b) {
+            var sum = a + b;
+            alert(sum);
+        }
+        // demo01();
+    </script>
+    <form action="">
+        <input type="button" value="请点击" onclick="demo01(20,2)">
+    </form>
+    <button onclick="demo01(30,3)">anniu</button> -->
+
+
+    <!-- <script>
+        //函数传参
+        function demo02(name, age) {
+            alert("Hello!" + name + "我的年龄是" + age);
+        }
+        demo02("Jeesey", 28);
+        demo02("iWen", 23);
+    </script> -->
+
+    <!-- <script>
+        //带返回值return的函数
+        function demo03() {
+            return "123";
+        }
+        var vl = demo03() + "和456";
+        alert(vl);
+    </script> -->
+
+    <!-- <p id="pid"></p>
+    <p id="pi"></p>
+    <script>
+        //html和script的p标签的交互,简单顺序
+        function demo04(a, b) {
+            if (a > b) {
+                return "a比b大,大" + (a - b);
+            } else {
+                return "b比a大,大" + (b - a);
+            }
+        }
+        var w = demo04(100, 2);
+        document.getElementById("pi").innerHTML = w;
+        document.getElementById("pid").innerHTML = demo04(0, 2);
+    </script> -->
+
+
+    <!-- <script>
+        //全局变量和局部变量
+        var n = 10, m = 20;     //全局变量
+        function demo05() {
+            var i = 100;    //局部变量
+            x = 200;        //隐形全局变量
+        }
+        //弹出窗口
+        alert(n);
+    </script> -->
+
+    <!-- <script>
+        //异常捕获
+        var str = "Hello";
+        function demo06() {
+            try {
+                alert(str);     //try认为会发生异常的代码块
+            } catch (err) {
+                alert(err)      //catch错误信息处理
+            }
+        }
+        demo06();
+    </script> -->
+
+    <!-- <input type="text" id="txt">
+    <input type="button" id="btn" onclick="demo06()" value="请点击">
+    <script>
+        function demo06() {
+            try {
+                var e = document.getElementById("txt").innerHTML;
+                if (e == "") {
+                    throw "please input...";
+                }
+            } catch (err) {
+                alert(err);
+            }
+        } 
+    </script>-->
+
+    <!-- 鼠标点击事件
+    <p id="pid" onclick="demo07()">请点击</p>
+    <script>
+        function demo07() {
+            alert("Hello!");
+        }
+    </script> -->
+
+
+    <!-- 鼠标移除onmouseout时 的事件,onmouseover鼠标经过时的事件 -->
+    <div class="div" onmouseover="onOver(this)" onmouseout="onOut(this)"
+        style="width: 100px;height: 100px;background-color:rgb(219, 22, 193);"></div>
+    <script>
+        function onOver(ooj) {
+            ooj.innerHTML = "我是你!";
+        }
+        function onOut(ooj) {
+            ooj.innerHTML = "我是另一个你~~~";
+        }
+    </script>
+
+    <!-- onchange文本内容改变事件
+    onselect文本框选中事件
+    onfocus光标聚集事件
+    onload网页加载完毕 事件,通常放在body的onload后面
+-->
+    <form action="">
+        <input type="text" onchange="alert('you are right')">
+        <input type="text" onselect="onSelect(this)" onfocus="onFocus(this)">
+    </form>
+    <script>
+        function onChange(ooj) {
+            alert("呸,打错了!")
+        }
+        function onSelect(ooj) {
+            ooj.style.background = "red";
+        }
+        function onFocus(ooj) {
+            ooj.style.background = "blue";
+        }
+        function onLoad(ooj) {
+            alert("网页加载完毕!");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

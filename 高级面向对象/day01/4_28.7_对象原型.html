@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象原型</title>
+</head>
+
+<body>
+    <script>
+        function Star(iname, age) {
+            this.iname = iname;
+            this.age = age;
+        }
+        Star.prototype.sing = function () {
+            console.log('I can sing~');
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 20);
+        console.log(ldh.__proto__ === zxy.prototype);   //false
+        console.log(ldh.__proto__ === Star.prototype);  //true：对象对象原型__proto__和原型对象prototype等价
+        //方法的查找规则：先从 ldh对象 身上查找是否有原型方法【sing】
+        //如果有，就执行这个对象上的sing
+        //如果没有sing原型方法，但是因为__proto__对象原型的存在，就去构造函数 原型对象prototype身上查找
+
+        ldh.sing(); //()--->调用方法
+        console.log(ldh);
+
+    </script>
+
+</body>
+
+</html>

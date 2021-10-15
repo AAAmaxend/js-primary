@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_26.1查找元素</title>
+</head>
+
+<body>
+    一般都是使用id选择器/类选择器/便签名
+    <div id="main">今天是阴雨天
+        <p>在寝室吃饭</p>
+        <p>不想去食堂</p>
+    </div>
+    <p id="main">心情一般</p>
+    <script>
+
+        // 例子: 查找id = main的元素, 然后查找id = main元素中的所有p元素
+        var x = document.getElementById("main");
+        var y = x.getElementsByTagName("p");
+        document.write("显示的内容是:" + y[1].innerHTML);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+</head>
+
+<body>
+    <div id="div">
+        <button id="btn1">请点击...</button>
+        <a href="http://www.baidu.com" id="aid">百度官网</a>
+    </div>
+    <script>
+        document.getElementById("btn1").addEventListener("click", showType);
+        document.getElementById("div").addEventListener("click", showDiv);
+        document.getElementById("aid").addEventListener("click", showA);
+        function showType(event) {
+            // alert(event.type);     //事件类型
+            // alert(event.target);    //事件目标
+            // event.stopPropagation(); //阻止事件冒泡
+        }
+        function showDiv() {
+            alert("div");
+        }
+        function showA() {
+            alert("A");
+            // event.stopImmediatePropagation();    //阻止事件冒泡
+            event.preventDefault();             //阻止事件默认行为
+        }
+    </script>
+
+    事件对象:
+    在触发DOM事件的时候都会产生一个对象
+    时间对象:
+    1.type:获取时间类型
+    2.target获取时间目标
+    3.stopPropagetion()阻止事件冒泡
+    4.preventDefault()阻止事件默认行为
+</body>
+
+</html>

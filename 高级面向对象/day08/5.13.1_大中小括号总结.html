@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大中小括号总结</title>
+</head>
+
+<body>
+    <script>
+        // 大括号:量词,里面表示重复次数
+        var reg = /^abc{3}$/;
+        console.log(reg.test('aaa'));   //false
+        console.log(reg.test('a')); //false
+        console.log(reg.test('abc'));      //false
+        console.log(reg.test('aaabbbccc'));    //false
+        console.log(reg.test('abcabcabc'));    //false
+        console.log("================================");
+
+
+
+        // 中括号:字符集和,匹配中括号中的任意字符
+        var reg2 = /^[abc]$/;
+        console.log(reg2.test('a'));    //true
+        console.log(reg2.test('abc'));      //false
+        console.log(reg2.test('aaabbbccc'));    //false
+        console.log(reg2.test('abcabcabc'));    //false
+        console.log("================================");
+
+
+        //小括号:表示优先级
+        var reg3 = /^(abc){3}$/;
+        console.log(reg3.test('abc'));      //false
+        console.log(reg3.test('aaabbbccc'));    //false
+        console.log(reg3.test('abcabcabc'));    //true
+
+
+    </script>
+</body>
+
+</html>

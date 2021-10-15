@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>4</div>
+    <div>7</div>
+    <div>11</div>
+    <div>15</div>
+    <div>19</div>
+    <script>
+        //扩展运算符 展开语法
+        // 1.扩展运算符可以将数组或者对象转为用逗号分隔的参数序列
+        let arr = [1, 2, 4, 3];
+        console.log(arr);       //(4)[1, 2, 4, 3]
+        console.log(...arr);    // 1, 2, 4, 3
+        console.log(1, 2, 3, 4); // 1, 2, 3, 4
+        console.log("============================");
+
+        // 2.扩展运算符作用：可以合并数组
+        let arr2 = ['red', 'pink', 'green'];
+        let arr3 = [1, 2, 3, 4];
+        console.log(arr2, arr3);    //(3)['red', 'pink', 'green'],(4)[1, 2, 3, 4]
+        console.log(...arr2, ...arr3); //red pink green 1 2 3 4
+
+        //3.将类数组或可遍历对象转换为真正的数组
+        let divs = document.getElementsByTagName('div');
+        var div = [...divs];   //转换
+        div.push('a');
+        console.log(div);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

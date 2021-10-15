@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经典let面试题</title>
+</head>
+
+<body>
+    <script>
+        // 经典面试题图解：此题的关键点在于变量i是全局的，函数执行时输出的都是全局作用域下的i值。
+        let arr = [];
+        for (let i = 0; i < 3; i++) {
+            arr[i] = function () {
+                console.log(i);
+
+            }
+        }
+        arr[0]();
+        arr[1]();
+        arr[2]();
+        arr[3](); // arr[3] is not a function
+
+// #### 小结
+
+// - let关键字就是用来声明变量的
+// - 使用let关键字声明的变量具有块级作用域
+// - 在一个大括号中 使用let关键字声明的变量才具有块级作用域 var关键字是不具备这个特点的
+// - 防止循环变量变成全局变量
+// - 使用let关键字声明的变量没有变量提升
+// - 使用let关键字声明的变量具有暂时性死区特性
+    </script>
+</body>
+
+</html>

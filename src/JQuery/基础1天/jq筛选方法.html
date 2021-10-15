@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">儿子</div>
+    </div>
+    <div class="nav">
+        <p>我是p1</p>
+        <div>
+            <p>我是p2</p>
+        </div>
+        <span>我是span1</span>
+    </div>
+    <ul class="ul1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <script>
+        $(function () {
+            //1.父 parent()亲爸爸
+            console.log($('.son').parent().parent());
+
+            //2.子 children()亲儿子 find()查找儿子、孙子等
+            $('.nav').children('div').css('color', 'red')
+            $('.nav').find('span').css('color', 'blue')
+
+            //3.兄
+            $('.nav').siblings('div').css('color', 'green')
+
+            //4.查找第n个元素
+            var index = 3;
+            // $('.ul1 li').eq(index).css('color', 'red');
+            $("ul li").eq(index++).css('color', 'purple'); //从1开始
+            // $('.ul1 li:eq(2)').css('color', 'yellow')  //从0开始
+            $('.ul1 li').eq(2).css('color', 'yellow')
+
+            //5.判断某个类名是否存在
+            console.log($('div:first').hasClass('father'));  //true
+            console.log($('div:last').hasClass('son')); //false
+
+
+        })
+    </script>
+</body>
+
+</html>
